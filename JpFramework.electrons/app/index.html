@@ -1,0 +1,20 @@
+<!doctype=html>
+<html>
+    <head>
+        <title>测试</title>
+    </head>
+    <body>
+        <h1>欢迎使用xxx</h1>
+        <input type="button" value="测试" onclick="test()" />
+    </body>
+    <script>window.$= window.jQuery = require("jquery");</script>
+    <script src="../edge.tool.js"></script>
+    <script>
+        var ipc= require('electron').ipcRenderer;
+        function test(){
+            Hander("Test!Test?test1=测试测试&test2=123456&test3=34&test4=false",function(error,result){
+                alert(result);
+            });
+        }
+    </script>
+</html>
