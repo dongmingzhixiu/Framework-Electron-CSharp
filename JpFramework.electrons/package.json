@@ -4,11 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "packager": "electron-packager . --win --out ./out --arch=x64 --app-version 1.4.14--overwrite --ignore=node_modules --overwrite --overwrite --icon=app/images/icon/icon.ico"
   },
   "author": "jpw",
   "license": "ISC",
   "devDependencies": {
+    "asar": "^0.14.5",
     "edge": "^7.10.1",
     "electron": "^3.0.6",
     "electron-edge": "^6.5.5",

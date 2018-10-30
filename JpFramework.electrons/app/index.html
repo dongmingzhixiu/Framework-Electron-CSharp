@@ -1,20 +1,184 @@
-<!doctype=html>
+<!doctype html>
 <html>
-    <head>
-        <title>测试</title>
-    </head>
-    <body>
-        <h1>欢迎使用xxx</h1>
-        <input type="button" value="测试" onclick="test()" />
-    </body>
-    <script>window.$= window.jQuery = require("jquery");</script>
-    <script src="../edge.tool.js"></script>
-    <script>
-        var ipc= require('electron').ipcRenderer;
-        function test(){
-            Hander("Test!Test?test1=测试测试&test2=123456&test3=34&test4=false",function(error,result){
-                alert(result);
-            });
+
+<head>
+    <title>测试</title>
+    <style>
+        body {
+            margin: 2px;
+            overflow: hidden;
+            background-color:#dadada;
+            -webkit-app-region: no-drag;
+            background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540751243251&di=157952508a92d1e2c47ff4d498a60641&imgtype=0&src=http%3A%2F%2Fbbsfiles.vivo.com.cn%2Fvivobbs%2Fattachment%2Fforum%2F201408%2F25%2F150201jdok6jkktjjogj90.jpg');
         }
-    </script>
+
+        body>div {
+            width: 100vw;
+            height: 100vh;
+            background: #1919197a;
+        }
+
+        .top{
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .top>div{
+            -webkit-app-region: no-drag;
+        }
+        .top-l{
+            float:left;
+            width: 120px;
+            height: 100vh;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding-top: 15px;
+        }
+        .top-c{
+            float:left;
+            min-width: 200px;
+            width: calc(100% - 240px);
+        }
+        .top-center{
+            width: 556px; 
+            height: 100px;  
+            margin: 0px auto;   
+            padding-top: 100px;
+            text-align: center;
+        }
+           
+
+        .top-r{
+            float:left;
+            width: 120px;  
+            padding: 20px 0px;
+        }
+        .top-r>input{
+            padding:4px 8px;
+            border-radius: 5px;
+            border:2px solid white;
+            background: #bdbcbc00;
+            color: white;
+            font-size: 14px;
+        }
+        .top-r>input:hover{
+            padding:4px 9px;
+            border-radius: 5px;
+            border:2px solid white;
+            background: #bdbcbc00;
+            color: white;
+            font-size: 14px;
+        }
+        .week{
+            font-size: 2em;
+            color: white;
+            height: 35px;
+        }
+        .time{
+            font-size: 3em;
+            color:white;   
+            height: 65px; 
+        }
+        .day{
+            font-size: 1em;
+            color: white; 
+            height: 30px; 
+        }
+        .weather{
+            color: white;
+            margin: 0 auto;
+            width: 560px;
+        }
+        .weather-list{
+            border-top: 1px solid #ffffff36;
+            float: left;
+            border-right: 1px solid #ffffff66;
+            color: white;
+            width: 90px;
+            height: 145px;
+            margin: 4px 0px;
+        }
+        
+        .weather-list>div{
+            padding:4px 2px;
+        }
+        .ganmao{
+            width: 100%;
+            padding: 4px;
+            border: 1px solid #ccc;
+            width: 537px;
+            display:none;
+        }
+        .c-bottom{
+            margin-top: 22px;
+            text-align: center;
+            color: white;
+        }
+        .poetry {
+            border-top: 1px solid #cccccc63;
+            border-bottom: 1px solid #cccccc63;
+            padding: 10px 0px;
+        }
+        .poetry>div>div{
+            padding: 5px 0px;
+            /* font-weight: 700; */
+        }
+        .pro-title{
+            font-size: 18px;
+        }
+        .pro-centent{
+            padding-top: 8px;
+        }
+        .restTime{font-size: 20px;}
+    </style>
+</head>
+
+
+<body>
+    
+    <div>
+        <!-- <div class="searchBox">
+            
+        </div> -->
+        <div class="top">
+            <div class="top-l">
+                已休息<br/><span class="restTime"></span>
+            </div>
+            <div class="top-c">
+                <div class="top-center">
+                    <div class="week">
+                        星期一
+                    </div>
+                    <div class="time">
+                        00:43:30
+                    </div>
+                    <div class="day">
+                        2018-10-29
+                    </div>
+                   
+                </div>
+                <div  class="c-bottom">
+                    <div class="weather">
+                    </div>
+                    <div  class="poetry"></div>
+                </div>
+            </div>
+            <div class="top-r">
+                <input id="close" type="button" value="结束锁屏" />
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+<script>window.$ = window.jQuery = require("jquery");</script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};</script>
+<script src="../edge.tool.js"></script>
+<script src="../app/js/index.js"></script>
+<script>
+   
+</script>
+
 </html>

@@ -1,16 +1,21 @@
-
-var {app,ipcMain,BrowserWindow} =require("electron");
-
+var electron=require("electron");
+var {app,ipcMain,BrowserWindow} =electron;
 
 app.on("ready", ()=>{
-    win = new BrowserWindow({
-        center:true,   minWidth: 1100, minHeight: 560,  backgroundColor: "black",
+    winW=electron.screen.getPrimaryDisplay().workAreaSize.width
+    winH=electron.screen.getPrimaryDisplay().workAreaSize.height
+    myWork = new BrowserWindow({
+        center:true,transparent:true,frame:false,titleBarStyle: 'hidden',height:winH,width:winW,
         webPreferences: {
             plugins: true
         }
+
     });
-    win.loadURL(__dirname + "/app/index.html");
-    win.show();
+
+    myWork.loadURL(__dirname + "/app/index.html");
+    myWork.show();
+    // myWork.maximize();
+
 } );
 
 
