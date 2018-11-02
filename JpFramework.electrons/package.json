@@ -1,10 +1,9 @@
 {
   "name": "jpfirstworkapp",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
-    "packager": "electron-packager . --win --out ./out --arch=x64 --app-version 1.4.14--overwrite --ignore=node_modules --overwrite --overwrite --icon=app/images/icon/icon.ico"
+    "packager": "electron-packager . --win --out D:/out --arch=x64 --app-version 1.4.14--overwrite --ignore=node_modules --overwrite --overwrite --icon=app/images/icon/icon.ico"
   },
   "author": "jpw",
   "license": "ISC",
@@ -17,5 +16,6 @@
   },
   "dependencies": {
     "jquery": "^3.3.1"
-  }
+  },
+  "description": ""
 }

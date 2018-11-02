@@ -5,11 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static JpFramework.DbConType;
 
 namespace JpFramework
 {
     public class Controller
     {
+        public static ConType dbConType ;
+        public Controller() {
+            //初始化数据库链接方式
+            dbConType = ConType.sqlserver;
+        }
+
+
+
         #region 反射 执行方法
         /// <summary>
         ///    反射调用方法入口处理函数
@@ -53,7 +62,7 @@ namespace JpFramework
                     // var LoginForm = my.GetMethod(classInfo[1]);
                     return ReflexTools.ExecuteMethod(my, classInfo[1], value).ToString();
                 }
-                throw new MessageTipShow("没有找到相关类或方法:" + classInfo[0]);
+                throw new Exception("没有找到相关类或方法:" + classInfo[0]);
             }
             catch (Exception em)
             {

@@ -37,3 +37,14 @@ test/
 concat-map/
 chainsaw/
 buffers/
+demos/
+jquery-ui/
+respond.min.js/
+html5shiv.js/
+ignore/
+bin/
+Debug/
+release/
+packages/
+TestResults/
+obj/

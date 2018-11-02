@@ -20,26 +20,14 @@ namespace  JpFramework
 
     public class LoginController
     {
-        public string LoginForm(string userName, string userPass)
+        public string userName { get; set; }
+        public string userPass { get; set; }
+
+        public string LoginForm()
         {
             var loginServices=new LoginServices();
-            var data=  loginServices.Login(userName, userPass);
-            if (data.Rows.Count<=0)
-            {
-                throw new MessageTipShow("用户名或密码错误！");
-            }
-            return "true";
-        }
-
-
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <returns></returns>
-        public string GetUser(string userId)
-        {
-            var userJson = JsonTools.SerializeObject(userId);
-            return userJson;
+            var result=loginServices.Login(userName,userPass);
+            return result;
         }
     }
 }

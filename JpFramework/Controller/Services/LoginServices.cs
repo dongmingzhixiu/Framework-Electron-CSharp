@@ -13,6 +13,7 @@
 // ==========================================================================
 
 using System.Data;
+using System.Windows.Forms;
 using JpFramework.MVC.Entity;
 using JpFramework.Tools;
 
@@ -20,22 +21,17 @@ namespace  JpFramework
 {
     public  class LoginServices
     {
-        public DataTable Login(string userName,string userPass)
+        public string Login(string userName,string userPass)
         {
+           
             var sql =
                 string.Format(
-                    "select * from sys_user where USERNAME='{0}' and  USERPASS='{1}'",// 
+                    "select count(1) from s_user where userName='{0}' and  userPass='{1}'",// 
                     userName, userPass);
-            var table =DBHelper.Query(sql).Tables[0];
-            return table;
+            var result = CmdTools.RunSQL(sql);
             
+            return result;
         }
 
-        public static bool Update(string userJson, string Id)
-        {
-            IEntity account = JsonTools.DeserializeJsonToObject<UserEntity>(userJson);
-            var sql = SqlTools.GetSql<IEntity>(account, "ID", Id);
-            return DBHelper.ExecuteSql(sql) >= 1;
-        }
     }
 }

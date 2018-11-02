@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../lib/iconfont1.0.8/iconfont.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layui/css/layui.css">
+    <title>登录</title>
+    <style>
+        body{
+                background:white;
+                opacity: 0.8;
+                overflow: hidden;
+            }
+            .no-drop{
+                -webkit-app-region: no-drag;
+            }
+            .drop{
+                -webkit-app-region: drag;
+            }
+            .site-block .layui-form {
+                margin-right: 20px;
+            }
+            .close-btn{
+                user-select: none;font-size: 1em;cursor: pointer;position: fixed;right: 2px;top: 0px;
+            }
+            .close-btn:hover{
+                color: blue;
+            }
+        </style>
+
+</head>
+<body>
+    <div style="width: 100%;height:40px;position: fixed;-webkit-app-region: drag"></div>
+    <div class="layui-main site-inline" >
+        <div class="site-content  " style="border: 1px solid #e0dddd; width: 500px;padding: 20px;">
+            <div class="site-title">
+                <fieldset class="" style="border-top: 1px solid #ebebeb;border: 0px;margin-top: 40px;border-top: 1px solid #ebebeb;">
+                    <legend  class=" " >
+                        <a name="use">登录</a>
+                    </legend>
+                </fieldset>
+                <div title="关闭" class="close-btn no-drop" onclick="closeBtn()"><i class="icon Hui-iconfont" style="font-size: 2em;"></i></div>
+            </div>
+            <div class="site-text site-block no-drop">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" isEmp="false" msg="用户名输入有误"  ctype="isNotNull,isText"  id="username" placeholder="请输入用户名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户密码</label>
+                        <div class="layui-input-block">
+                            <input type="password"  isEmp="false"  msg="密码错误有误"  ctype="isNotNull,isText" id="password" lay-verify="required" l="" placeholder="请输入密码" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type ="button" class="layui-btn" id="loginBtn" value="登录"/>
+                            <input  type="reset" class="layui-btn layui-btn-primary"  value="重置"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>if (typeof module === 'object') { window.jQuery = window.$ = module.exports; };</script>
+<script>window.$ = window.jQuery = require("jquery");</script>
+<script src="../../edge.tool.js"></script>
+<script src="../lib/layui/layui.all.js"></script>
+<script src="../lib/jquery.extends/jquery.bottomtip.js"></script>
+<script src="../lib/jquery.extends/jquery.checkInput.js"></script>
+<script src="../lib/jquery.extends/jquery.layer.load.js"></script>
+<script>
+    // $(function(){
+    //     layer.open({
+    //         type: 1,
+    //         shade: 0.21,
+    //         title: false, //不显示标题
+    //         content: $("body"), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+    //         cancel: function () {
+    //             $("#" + id).prev().css({ "border-bottom-right-radius": "10px", "border-bottom-left-radius": "10px" });
+    //             $(doc).val("详情");
+    //             $("#" + id).css({ "display": "none", "position": "static" });
+    //         }, success: function (lay) {
+    //             console.log(lay);
+    //             $(lay).css("width", "420px");
+    //         }
+    //     });
+    // });
+
+    $("#loginBtn").on("click", function () {
+        var username = $("#username").val();
+        if(username==""){
+            return false,layer.msg("用户名不能为空！");
+        }
+        var password = $("#password").val();
+        if(password==""){
+            return false,layer.msg("密码不能为空！");
+        }
+        var index=$.openLoadForm("正在登陆，请稍后！");
+        ajax("Login!LoginForm?userName=" + username + "&userPass=" + password, function (error, result) {
+            var res = getResult(result,function(res){
+                if(!res[0]||parseInt(res[0]["Column1"])<=0){
+                    layer.msg("用户名或密码错误！");
+                    $.closeLoadForm(index);
+                    return;
+                }
+                layer.msg("登录成功！");
+            });
+      
+        });
+    });
+    function closeBtn(){
+        var currwin = require("electron").remote.getCurrentWindow();
+        currwin.close();
+    }
+
+    //添加校验
+    $("body")._initCheck();
+
+    $.openBottomTip({},function(openId){
+        //alert("单击|"+openId);
+        },
+        function(openId){
+            //alert("双击,我要关闭了|"+openId);
+            $.closeBottomTip();
+        }
+    );
+
+   
+</script>
+
+</html>

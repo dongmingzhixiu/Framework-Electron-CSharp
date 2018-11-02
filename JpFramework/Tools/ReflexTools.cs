@@ -24,7 +24,7 @@ namespace JpFramework.Tools
     /// </summary>
     public class ReflexTools
     {
-       
+
 
         /// <summary>
         /// 反射得到所有类 
@@ -54,17 +54,17 @@ namespace JpFramework.Tools
             SetProperty(my, objName, value);
             //执行方法
             var objMethod = my.GetMethod(functionName);
-            return objMethod.Invoke(objName,null);
+            return objMethod.Invoke(objName, null);
         }
-       
+
 
         //反射 为对象属性赋值
-        public static void SetProperty(Type type,object objName, string list)
+        public static void SetProperty(Type type, object objName, string list)
         {
             var dic = new Dictionary<String, String>();
             //拆解参数
-            if (!string.IsNullOrEmpty(list)) { 
-                var paraList=list.Split('&');
+            if (!string.IsNullOrEmpty(list)) {
+                var paraList = list.Split('&');
                 for (var d = 0; d < paraList.Length; d++) {
                     var _d = paraList[d].Split('=');
                     dic[_d[0]] = _d[1];
@@ -78,11 +78,11 @@ namespace JpFramework.Tools
                 var property = propertyInfo[i];
                 var str = "&" + list;
                 var p = "&" + property.Name + "=";
-                if (!("&"+list).Contains("&"+property.Name+ "=")) { continue; }
+                if (!("&" + list).Contains("&" + property.Name + "=")) { continue; }
 
-                var value =dic[property.Name];
+                var value = dic[property.Name];
                 value = value.ToLower() == "true" || value.ToLower() == "false" ? value.ToLower() : value;
- 
+
                 if (!property.PropertyType.IsGenericType)
                 {
                     //非泛型
@@ -116,16 +116,82 @@ namespace JpFramework.Tools
             return objMethod.Invoke(objName, value);
         }
 
-        //反射执行方法
-        public static object ExecuteMethod(ConType conType, string functionName, object[] obj)
-        {
-            var className = DBConfig.GetClassName(conType);
 
-            //获取程序集 所有类型
-            var exeNames = Application.ExecutablePath.Replace(Application.StartupPath, "").Replace(@"\", "");
-            var ass = Assembly.LoadFrom(exeNames);
-            var t = ass.GetType(className);
-            return ExecuteMethod(t, functionName, obj);
+        /// <summary>
+        /// 反射调用方法
+        /// </summary>
+        /// <param name="dllName"></param>
+        /// <returns>返回加载dll的程序集</returns>
+        public static Assembly GetAssemblyDll(string dllName,string path="") {
+            if (string.IsNullOrEmpty(path)) {
+                var obj = Assembly.GetExecutingAssembly();
+                var nowPath=obj.Location;
+                var length = nowPath.LastIndexOf(@"\");
+                length=length<=0 ? nowPath.LastIndexOf("/"):length;
+                path = nowPath.Substring(0, length);
+            }
+
+
+            path = path + "\\" + dllName;
+            var ass = Assembly.UnsafeLoadFrom(path);
+            return ass;
+        }
+        /// <summary>
+        /// 根据程序获取类实例
+        /// </summary>
+        /// <param name="ass"></param>
+        /// <param name="className"></param>
+        /// <returns></returns>
+        public static object GetTypeDll(Assembly ass, string className,object [] value) {
+            var my = ass.GetType(className);
+            return Activator.CreateInstance(my, value);
+        }
+
+        /// <summary>
+        /// 执行dll方法
+        /// </summary>
+        /// <param name="my"></param>
+        /// <param name="objName"></param>
+        /// <param name="functionName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static object GetResultDll(Assembly ass,string className,string functionName,object [] value) {
+            var objName = ass.GetType(className);
+            Type t = null;
+            var types=ass.GetTypes();
+            for (var i = 0; i < types.Length; i++) {
+                if (types[i].Name == className) {
+                    t = types[i];
+                    break;
+                }
+            }
+            if (value == null)
+            {
+                object objName2 = Activator.CreateInstance(t);
+            }
+            else
+            {
+                object objName2 = Activator.CreateInstance(objName.GetType(),value);
+
+            }
+            //执行方法
+            var objMethod = objName.GetType().GetMethod(functionName);
+            return objMethod.Invoke(objName, value);
+        }
+
+        /// <summary>
+        /// 执行dll方法
+        /// </summary>
+        /// <param name="my"></param>
+        /// <param name="objName"></param>
+        /// <param name="functionName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static object GetResultsDll(Assembly ass, object objName, string functionName, object [] value)
+        {
+            //执行方法
+            var objMethod = objName.GetType().GetMethod(functionName);
+            return objMethod.Invoke(objName, value);
         }
     }
 }
