@@ -29,5 +29,5 @@
 ![浏览历史记录](https://github.com/dongmingzhixiu/Framework-Electron-CSharp/blob/master/EffectImg/QQ%E6%88%AA%E5%9B%BE20181112015331.png)
 
 
-# 赏
+# 赏 【觉得不错，就支持一下】
 ![觉得不错,就支持一下](https://img-blog.csdnimg.cn/20181109114521839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4MjU0MDkz,size_16,color_FFFFFF,t_70)
