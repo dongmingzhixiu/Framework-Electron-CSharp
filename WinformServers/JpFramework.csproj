@@ -1,0 +1,1997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JpFramework</RootNamespace>
+    <AssemblyName>JpFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>jpO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\ForNetCore\NodejsElectronApp\JpFramework\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ForNetCore\NodejsElectronApp\JpFramework\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StriveEngine, Version=3.8.0.0, Culture=neutral, PublicKeyToken=ba1538489f75683e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\StriveEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\ForNetCore\NodejsElectronApp\JpFramework\bin\Debug\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller.cs" />
+    <Compile Include="Controller\Entity\AccountEntity.cs" />
+    <Compile Include="Controller\Entity\IEntity.cs" />
+    <Compile Include="Controller\Entity\TypesEntity.cs" />
+    <Compile Include="Controller\Entity\UserEntity.cs" />
+    <Compile Include="Controller\HistoryController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ProgrameController.cs" />
+    <Compile Include="Controller\Services\ChartsServices.cs" />
+    <Compile Include="Controller\Services\HistoryServices.cs" />
+    <Compile Include="Controller\Services\LoginServices.cs" />
+    <Compile Include="Controller\Services\ProgrameServices.cs" />
+    <Compile Include="DBTools\DBConfig.cs" />
+    <Compile Include="DBTools\DBHelper.cs" />
+    <Compile Include="DBTools\HelperInterface.cs" />
+    <Compile Include="DBTools\MySQLHelper.cs" />
+    <Compile Include="DBTools\SQLServerHelper.cs" />
+    <Compile Include="JpFrameworkDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JpFrameworkDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ResultEntity.cs" />
+    <Compile Include="Services.cs" />
+    <Compile Include="Tools\CmdTools.cs" />
+    <Compile Include="Tools\ConfigTools.cs" />
+    <Compile Include="Tools\DbConType.cs" />
+    <Compile Include="Tools\JsonTools.cs" />
+    <Compile Include="Tools\ReflexTools.cs" />
+    <Compile Include="Tools\SQLiteHelper.cs" />
+    <Compile Include="Tools\SqlTools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AppView\app\lib\iconfont1.0.8\iconfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\app\lib\iconfont1.0.8\iconfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\app\lib\iconfont1.0.8\iconfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\app\lib\layuis\font\iconfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\app\lib\layuis\font\iconfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\app\lib\layuis\font\iconfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\ElectronApp.njsproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\node_modules\%40types\node\LICENSE" />
+    <None Include="AppView\node_modules\%40types\node\package.json" />
+    <None Include="AppView\node_modules\%40types\node\README.md" />
+    <None Include="AppView\node_modules\.bin\electron" />
+    <None Include="AppView\node_modules\.bin\electron-download" />
+    <None Include="AppView\node_modules\.bin\electron-download.cmd" />
+    <None Include="AppView\node_modules\.bin\electron.cmd" />
+    <None Include="AppView\node_modules\.bin\extract-zip" />
+    <None Include="AppView\node_modules\.bin\extract-zip.cmd" />
+    <None Include="AppView\node_modules\.bin\mkdirp" />
+    <None Include="AppView\node_modules\.bin\mkdirp.cmd" />
+    <None Include="AppView\node_modules\.bin\nugget" />
+    <None Include="AppView\node_modules\.bin\nugget.cmd" />
+    <None Include="AppView\node_modules\.bin\pretty-bytes" />
+    <None Include="AppView\node_modules\.bin\pretty-bytes.cmd" />
+    <None Include="AppView\node_modules\.bin\rc" />
+    <None Include="AppView\node_modules\.bin\rc.cmd" />
+    <None Include="AppView\node_modules\.bin\semver" />
+    <None Include="AppView\node_modules\.bin\semver.cmd" />
+    <None Include="AppView\node_modules\.bin\sshpk-conv" />
+    <None Include="AppView\node_modules\.bin\sshpk-conv.cmd" />
+    <None Include="AppView\node_modules\.bin\sshpk-sign" />
+    <None Include="AppView\node_modules\.bin\sshpk-sign.cmd" />
+    <None Include="AppView\node_modules\.bin\sshpk-verify" />
+    <None Include="AppView\node_modules\.bin\sshpk-verify.cmd" />
+    <None Include="AppView\node_modules\.bin\strip-indent" />
+    <None Include="AppView\node_modules\.bin\strip-indent.cmd" />
+    <None Include="AppView\node_modules\.bin\uuid" />
+    <None Include="AppView\node_modules\.bin\uuid.cmd" />
+    <None Include="AppView\node_modules\ajv\dist\ajv.min.js.map" />
+    <None Include="AppView\node_modules\ajv\lib\dotjs\README.md" />
+    <None Include="AppView\node_modules\ajv\lib\dot\allOf.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\anyOf.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\const.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\contains.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\custom.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\dependencies.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\enum.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\format.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\items.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\multipleOf.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\not.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\oneOf.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\pattern.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\properties.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\propertyNames.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\ref.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\required.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\uniqueItems.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\validate.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\_limit.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\_limitItems.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\_limitLength.jst" />
+    <None Include="AppView\node_modules\ajv\lib\dot\_limitProperties.jst" />
+    <None Include="AppView\node_modules\ajv\lib\refs\%24data.json" />
+    <None Include="AppView\node_modules\ajv\lib\refs\json-schema-draft-04.json" />
+    <None Include="AppView\node_modules\ajv\lib\refs\json-schema-draft-06.json" />
+    <None Include="AppView\node_modules\ajv\lib\refs\json-schema-v5.json" />
+    <None Include="AppView\node_modules\ajv\LICENSE" />
+    <None Include="AppView\node_modules\ajv\package.json" />
+    <None Include="AppView\node_modules\ajv\README.md" />
+    <None Include="AppView\node_modules\ajv\scripts\.eslintrc.yml" />
+    <None Include="AppView\node_modules\ajv\scripts\info" />
+    <None Include="AppView\node_modules\ajv\scripts\prepare-tests" />
+    <None Include="AppView\node_modules\ajv\scripts\travis-gh-pages" />
+    <None Include="AppView\node_modules\ansi-regex\license" />
+    <None Include="AppView\node_modules\ansi-regex\package.json" />
+    <None Include="AppView\node_modules\ansi-regex\readme.md" />
+    <None Include="AppView\node_modules\array-find-index\license" />
+    <None Include="AppView\node_modules\array-find-index\package.json" />
+    <None Include="AppView\node_modules\array-find-index\readme.md" />
+    <None Include="AppView\node_modules\asn1\LICENSE" />
+    <None Include="AppView\node_modules\asn1\package.json" />
+    <None Include="AppView\node_modules\asn1\README.md" />
+    <None Include="AppView\node_modules\assert-plus\AUTHORS" />
+    <None Include="AppView\node_modules\assert-plus\CHANGES.md" />
+    <None Include="AppView\node_modules\assert-plus\package.json" />
+    <None Include="AppView\node_modules\assert-plus\README.md" />
+    <None Include="AppView\node_modules\asynckit\LICENSE" />
+    <None Include="AppView\node_modules\asynckit\package.json" />
+    <None Include="AppView\node_modules\asynckit\README.md" />
+    <None Include="AppView\node_modules\aws-sign2\LICENSE" />
+    <None Include="AppView\node_modules\aws-sign2\package.json" />
+    <None Include="AppView\node_modules\aws-sign2\README.md" />
+    <None Include="AppView\node_modules\aws4\.travis.yml" />
+    <None Include="AppView\node_modules\aws4\LICENSE" />
+    <None Include="AppView\node_modules\aws4\package.json" />
+    <None Include="AppView\node_modules\aws4\README.md" />
+    <None Include="AppView\node_modules\bcrypt-pbkdf\CONTRIBUTING.md" />
+    <None Include="AppView\node_modules\bcrypt-pbkdf\LICENSE" />
+    <None Include="AppView\node_modules\bcrypt-pbkdf\package.json" />
+    <None Include="AppView\node_modules\bcrypt-pbkdf\README.md" />
+    <None Include="AppView\node_modules\buffer-from\LICENSE" />
+    <None Include="AppView\node_modules\buffer-from\package.json" />
+    <None Include="AppView\node_modules\buffer-from\readme.md" />
+    <None Include="AppView\node_modules\builtin-modules\builtin-modules.json" />
+    <None Include="AppView\node_modules\builtin-modules\license" />
+    <None Include="AppView\node_modules\builtin-modules\package.json" />
+    <None Include="AppView\node_modules\builtin-modules\readme.md" />
+    <None Include="AppView\node_modules\camelcase-keys\license" />
+    <None Include="AppView\node_modules\camelcase-keys\package.json" />
+    <None Include="AppView\node_modules\camelcase-keys\readme.md" />
+    <None Include="AppView\node_modules\camelcase\license" />
+    <None Include="AppView\node_modules\camelcase\package.json" />
+    <None Include="AppView\node_modules\camelcase\readme.md" />
+    <None Include="AppView\node_modules\caseless\LICENSE" />
+    <None Include="AppView\node_modules\caseless\package.json" />
+    <None Include="AppView\node_modules\caseless\README.md" />
+    <None Include="AppView\node_modules\code-point-at\license" />
+    <None Include="AppView\node_modules\code-point-at\package.json" />
+    <None Include="AppView\node_modules\code-point-at\readme.md" />
+    <None Include="AppView\node_modules\combined-stream\License" />
+    <None Include="AppView\node_modules\combined-stream\package.json" />
+    <None Include="AppView\node_modules\combined-stream\Readme.md" />
+    <None Include="AppView\node_modules\concat-stream\LICENSE" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\isarray\.npmignore" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\isarray\.travis.yml" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\isarray\component.json" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\isarray\Makefile" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\isarray\package.json" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\isarray\README.md" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\.travis.yml" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\CONTRIBUTING.md" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\doc\wg-meetings\2015-01-30.md" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\GOVERNANCE.md" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\LICENSE" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\package.json" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\readable-stream\README.md" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\string_decoder\.travis.yml" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\string_decoder\LICENSE" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\string_decoder\package.json" />
+    <None Include="AppView\node_modules\concat-stream\node_modules\string_decoder\README.md" />
+    <None Include="AppView\node_modules\concat-stream\package.json" />
+    <None Include="AppView\node_modules\concat-stream\readme.md" />
+    <None Include="AppView\node_modules\core-util-is\float.patch" />
+    <None Include="AppView\node_modules\core-util-is\LICENSE" />
+    <None Include="AppView\node_modules\core-util-is\package.json" />
+    <None Include="AppView\node_modules\core-util-is\README.md" />
+    <None Include="AppView\node_modules\co\History.md" />
+    <None Include="AppView\node_modules\co\LICENSE" />
+    <None Include="AppView\node_modules\co\package.json" />
+    <None Include="AppView\node_modules\co\Readme.md" />
+    <None Include="AppView\node_modules\currently-unhandled\license" />
+    <None Include="AppView\node_modules\currently-unhandled\package.json" />
+    <None Include="AppView\node_modules\currently-unhandled\readme.md" />
+    <None Include="AppView\node_modules\dashdash\CHANGES.md" />
+    <None Include="AppView\node_modules\dashdash\etc\dashdash.bash_completion.in" />
+    <None Include="AppView\node_modules\dashdash\package.json" />
+    <None Include="AppView\node_modules\dashdash\README.md" />
+    <None Include="AppView\node_modules\debug\CHANGELOG.md" />
+    <None Include="AppView\node_modules\debug\LICENSE" />
+    <None Include="AppView\node_modules\debug\package.json" />
+    <None Include="AppView\node_modules\debug\README.md" />
+    <None Include="AppView\node_modules\decamelize\license" />
+    <None Include="AppView\node_modules\decamelize\package.json" />
+    <None Include="AppView\node_modules\decamelize\readme.md" />
+    <None Include="AppView\node_modules\deep-extend\CHANGELOG.md" />
+    <None Include="AppView\node_modules\deep-extend\LICENSE" />
+    <None Include="AppView\node_modules\deep-extend\package.json" />
+    <None Include="AppView\node_modules\deep-extend\README.md" />
+    <None Include="AppView\node_modules\delayed-stream\.npmignore" />
+    <None Include="AppView\node_modules\delayed-stream\License" />
+    <None Include="AppView\node_modules\delayed-stream\Makefile" />
+    <None Include="AppView\node_modules\delayed-stream\package.json" />
+    <None Include="AppView\node_modules\delayed-stream\Readme.md" />
+    <None Include="AppView\node_modules\ecc-jsbn\lib\LICENSE-jsbn" />
+    <None Include="AppView\node_modules\ecc-jsbn\LICENSE" />
+    <None Include="AppView\node_modules\ecc-jsbn\package.json" />
+    <None Include="AppView\node_modules\ecc-jsbn\README.md" />
+    <None Include="AppView\node_modules\electron-download\CODE_OF_CONDUCT.md" />
+    <None Include="AppView\node_modules\electron-download\collaborators.md" />
+    <None Include="AppView\node_modules\electron-download\LICENSE" />
+    <None Include="AppView\node_modules\electron-download\package.json" />
+    <None Include="AppView\node_modules\electron-download\readme.md" />
+    <None Include="AppView\node_modules\electron\dist\blink_image_resources_200_percent.pak" />
+    <None Include="AppView\node_modules\electron\dist\content_resources_200_percent.pak" />
+    <None Include="AppView\node_modules\electron\dist\content_shell.pak" />
+    <None Include="AppView\node_modules\electron\dist\icudtl.dat" />
+    <None Include="AppView\node_modules\electron\dist\LICENSE" />
+    <None Include="AppView\node_modules\electron\dist\locales\am.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ar.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\bg.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\bn.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ca.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\cs.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\da.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\de.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\el.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\en-GB.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\en-US.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\es-419.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\es.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\et.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\fa.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\fake-bidi.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\fi.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\fil.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\fr.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\gu.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\he.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\hi.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\hr.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\hu.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\id.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\it.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ja.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\kn.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ko.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\lt.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\lv.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ml.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\mr.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ms.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\nb.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\nl.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\pl.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\pt-BR.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\pt-PT.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ro.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ru.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\sk.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\sl.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\sr.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\sv.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\sw.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\ta.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\te.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\th.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\tr.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\uk.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\vi.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\zh-CN.pak" />
+    <None Include="AppView\node_modules\electron\dist\locales\zh-TW.pak" />
+    <None Include="AppView\node_modules\electron\dist\natives_blob.bin" />
+    <None Include="AppView\node_modules\electron\dist\resources\default_app.asar" />
+    <None Include="AppView\node_modules\electron\dist\resources\electron.asar" />
+    <None Include="AppView\node_modules\electron\dist\ui_resources_200_percent.pak" />
+    <None Include="AppView\node_modules\electron\dist\v8_context_snapshot.bin" />
+    <None Include="AppView\node_modules\electron\dist\version" />
+    <None Include="AppView\node_modules\electron\dist\views_resources_200_percent.pak" />
+    <None Include="AppView\node_modules\electron\LICENSE" />
+    <None Include="AppView\node_modules\electron\package.json" />
+    <None Include="AppView\node_modules\electron\README.md" />
+    <None Include="AppView\node_modules\env-paths\license" />
+    <None Include="AppView\node_modules\env-paths\package.json" />
+    <None Include="AppView\node_modules\env-paths\readme.md" />
+    <None Include="AppView\node_modules\error-ex\LICENSE" />
+    <None Include="AppView\node_modules\error-ex\package.json" />
+    <None Include="AppView\node_modules\error-ex\README.md" />
+    <None Include="AppView\node_modules\extend\.editorconfig" />
+    <None Include="AppView\node_modules\extend\.eslintrc" />
+    <None Include="AppView\node_modules\extend\.jscs.json" />
+    <None Include="AppView\node_modules\extend\.travis.yml" />
+    <None Include="AppView\node_modules\extend\CHANGELOG.md" />
+    <None Include="AppView\node_modules\extend\component.json" />
+    <None Include="AppView\node_modules\extend\LICENSE" />
+    <None Include="AppView\node_modules\extend\package.json" />
+    <None Include="AppView\node_modules\extend\README.md" />
+    <None Include="AppView\node_modules\extract-zip\.npmignore" />
+    <None Include="AppView\node_modules\extract-zip\.travis.yml" />
+    <None Include="AppView\node_modules\extract-zip\CONTRIBUTING.md" />
+    <None Include="AppView\node_modules\extract-zip\LICENSE" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\.coveralls.yml" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\.eslintrc" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\.npmignore" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\.travis.yml" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\CHANGELOG.md" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\component.json" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\LICENSE" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\Makefile" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\package.json" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\debug\README.md" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\ms\license.md" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\ms\package.json" />
+    <None Include="AppView\node_modules\extract-zip\node_modules\ms\readme.md" />
+    <None Include="AppView\node_modules\extract-zip\package.json" />
+    <None Include="AppView\node_modules\extract-zip\readme.md" />
+    <None Include="AppView\node_modules\extsprintf\.gitmodules" />
+    <None Include="AppView\node_modules\extsprintf\.npmignore" />
+    <None Include="AppView\node_modules\extsprintf\jsl.node.conf" />
+    <None Include="AppView\node_modules\extsprintf\LICENSE" />
+    <None Include="AppView\node_modules\extsprintf\Makefile" />
+    <None Include="AppView\node_modules\extsprintf\Makefile.targ" />
+    <None Include="AppView\node_modules\extsprintf\package.json" />
+    <None Include="AppView\node_modules\extsprintf\README.md" />
+    <None Include="AppView\node_modules\fast-deep-equal\LICENSE" />
+    <None Include="AppView\node_modules\fast-deep-equal\package.json" />
+    <None Include="AppView\node_modules\fast-deep-equal\README.md" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\.eslintrc.yml" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\.npmignore" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\.travis.yml" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\benchmark\test.json" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\LICENSE" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\package.json" />
+    <None Include="AppView\node_modules\fast-json-stable-stringify\README.md" />
+    <None Include="AppView\node_modules\fd-slicer\.npmignore" />
+    <None Include="AppView\node_modules\fd-slicer\.travis.yml" />
+    <None Include="AppView\node_modules\fd-slicer\CHANGELOG.md" />
+    <None Include="AppView\node_modules\fd-slicer\LICENSE" />
+    <None Include="AppView\node_modules\fd-slicer\package.json" />
+    <None Include="AppView\node_modules\fd-slicer\README.md" />
+    <None Include="AppView\node_modules\find-up\license" />
+    <None Include="AppView\node_modules\find-up\node_modules\path-exists\license" />
+    <None Include="AppView\node_modules\find-up\node_modules\path-exists\package.json" />
+    <None Include="AppView\node_modules\find-up\node_modules\path-exists\readme.md" />
+    <None Include="AppView\node_modules\find-up\package.json" />
+    <None Include="AppView\node_modules\find-up\readme.md" />
+    <None Include="AppView\node_modules\forever-agent\LICENSE" />
+    <None Include="AppView\node_modules\forever-agent\package.json" />
+    <None Include="AppView\node_modules\forever-agent\README.md" />
+    <None Include="AppView\node_modules\form-data\License" />
+    <None Include="AppView\node_modules\form-data\package.json" />
+    <None Include="AppView\node_modules\form-data\README.md" />
+    <None Include="AppView\node_modules\form-data\README.md.bak" />
+    <None Include="AppView\node_modules\form-data\yarn.lock" />
+    <None Include="AppView\node_modules\fs-extra\CHANGELOG.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\copy-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\copy.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\emptyDir-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\emptyDir.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureDir-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureDir.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureFile-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureFile.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureLink-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureLink.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureSymlink-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\ensureSymlink.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\fs-read-write.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\move-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\move.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\outputFile-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\outputFile.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\outputJson-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\outputJson.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\pathExists-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\pathExists.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\readJson-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\readJson.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\remove-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\remove.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\writeJson-sync.md" />
+    <None Include="AppView\node_modules\fs-extra\docs\writeJson.md" />
+    <None Include="AppView\node_modules\fs-extra\LICENSE" />
+    <None Include="AppView\node_modules\fs-extra\package.json" />
+    <None Include="AppView\node_modules\fs-extra\README.md" />
+    <None Include="AppView\node_modules\get-stdin\package.json" />
+    <None Include="AppView\node_modules\get-stdin\readme.md" />
+    <None Include="AppView\node_modules\getpass\.npmignore" />
+    <None Include="AppView\node_modules\getpass\.travis.yml" />
+    <None Include="AppView\node_modules\getpass\LICENSE" />
+    <None Include="AppView\node_modules\getpass\package.json" />
+    <None Include="AppView\node_modules\getpass\README.md" />
+    <None Include="AppView\node_modules\graceful-fs\LICENSE" />
+    <None Include="AppView\node_modules\graceful-fs\package.json" />
+    <None Include="AppView\node_modules\graceful-fs\README.md" />
+    <None Include="AppView\node_modules\har-schema\lib\afterRequest.json" />
+    <None Include="AppView\node_modules\har-schema\lib\beforeRequest.json" />
+    <None Include="AppView\node_modules\har-schema\lib\browser.json" />
+    <None Include="AppView\node_modules\har-schema\lib\cache.json" />
+    <None Include="AppView\node_modules\har-schema\lib\content.json" />
+    <None Include="AppView\node_modules\har-schema\lib\cookie.json" />
+    <None Include="AppView\node_modules\har-schema\lib\creator.json" />
+    <None Include="AppView\node_modules\har-schema\lib\entry.json" />
+    <None Include="AppView\node_modules\har-schema\lib\har.json" />
+    <None Include="AppView\node_modules\har-schema\lib\header.json" />
+    <None Include="AppView\node_modules\har-schema\lib\log.json" />
+    <None Include="AppView\node_modules\har-schema\lib\page.json" />
+    <None Include="AppView\node_modules\har-schema\lib\pageTimings.json" />
+    <None Include="AppView\node_modules\har-schema\lib\postData.json" />
+    <None Include="AppView\node_modules\har-schema\lib\query.json" />
+    <None Include="AppView\node_modules\har-schema\lib\request.json" />
+    <None Include="AppView\node_modules\har-schema\lib\response.json" />
+    <None Include="AppView\node_modules\har-schema\lib\timings.json" />
+    <None Include="AppView\node_modules\har-schema\LICENSE" />
+    <None Include="AppView\node_modules\har-schema\package.json" />
+    <None Include="AppView\node_modules\har-schema\README.md" />
+    <None Include="AppView\node_modules\har-validator\LICENSE" />
+    <None Include="AppView\node_modules\har-validator\package.json" />
+    <None Include="AppView\node_modules\har-validator\README.md" />
+    <None Include="AppView\node_modules\hosted-git-info\CHANGELOG.md" />
+    <None Include="AppView\node_modules\hosted-git-info\LICENSE" />
+    <None Include="AppView\node_modules\hosted-git-info\package.json" />
+    <None Include="AppView\node_modules\hosted-git-info\README.md" />
+    <None Include="AppView\node_modules\http-signature\.dir-locals.el" />
+    <None Include="AppView\node_modules\http-signature\.npmignore" />
+    <None Include="AppView\node_modules\http-signature\CHANGES.md" />
+    <None Include="AppView\node_modules\http-signature\http_signing.md" />
+    <None Include="AppView\node_modules\http-signature\LICENSE" />
+    <None Include="AppView\node_modules\http-signature\package.json" />
+    <None Include="AppView\node_modules\http-signature\README.md" />
+    <None Include="AppView\node_modules\iconv-lite\Changelog.md" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\big5-added.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\cp936.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\cp949.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\cp950.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\eucjp.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\gb18030-ranges.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\gbk-added.json" />
+    <None Include="AppView\node_modules\iconv-lite\encodings\tables\shiftjis.json" />
+    <None Include="AppView\node_modules\iconv-lite\LICENSE" />
+    <None Include="AppView\node_modules\iconv-lite\package.json" />
+    <None Include="AppView\node_modules\iconv-lite\README.md" />
+    <None Include="AppView\node_modules\indent-string\license" />
+    <None Include="AppView\node_modules\indent-string\package.json" />
+    <None Include="AppView\node_modules\indent-string\readme.md" />
+    <None Include="AppView\node_modules\inherits\LICENSE" />
+    <None Include="AppView\node_modules\inherits\package.json" />
+    <None Include="AppView\node_modules\inherits\README.md" />
+    <None Include="AppView\node_modules\ini\LICENSE" />
+    <None Include="AppView\node_modules\ini\package.json" />
+    <None Include="AppView\node_modules\ini\README.md" />
+    <None Include="AppView\node_modules\is-arrayish\.editorconfig" />
+    <None Include="AppView\node_modules\is-arrayish\.istanbul.yml" />
+    <None Include="AppView\node_modules\is-arrayish\.npmignore" />
+    <None Include="AppView\node_modules\is-arrayish\.travis.yml" />
+    <None Include="AppView\node_modules\is-arrayish\LICENSE" />
+    <None Include="AppView\node_modules\is-arrayish\package.json" />
+    <None Include="AppView\node_modules\is-arrayish\README.md" />
+    <None Include="AppView\node_modules\is-builtin-module\license" />
+    <None Include="AppView\node_modules\is-builtin-module\package.json" />
+    <None Include="AppView\node_modules\is-builtin-module\readme.md" />
+    <None Include="AppView\node_modules\is-finite\license" />
+    <None Include="AppView\node_modules\is-finite\package.json" />
+    <None Include="AppView\node_modules\is-finite\readme.md" />
+    <None Include="AppView\node_modules\is-fullwidth-code-point\license" />
+    <None Include="AppView\node_modules\is-fullwidth-code-point\package.json" />
+    <None Include="AppView\node_modules\is-fullwidth-code-point\readme.md" />
+    <None Include="AppView\node_modules\is-typedarray\LICENSE.md" />
+    <None Include="AppView\node_modules\is-typedarray\package.json" />
+    <None Include="AppView\node_modules\is-typedarray\README.md" />
+    <None Include="AppView\node_modules\is-utf8\LICENSE" />
+    <None Include="AppView\node_modules\is-utf8\package.json" />
+    <None Include="AppView\node_modules\is-utf8\README.md" />
+    <None Include="AppView\node_modules\isarray\component.json" />
+    <None Include="AppView\node_modules\isarray\package.json" />
+    <None Include="AppView\node_modules\isarray\README.md" />
+    <None Include="AppView\node_modules\isstream\.jshintrc" />
+    <None Include="AppView\node_modules\isstream\.npmignore" />
+    <None Include="AppView\node_modules\isstream\.travis.yml" />
+    <None Include="AppView\node_modules\isstream\LICENSE.md" />
+    <None Include="AppView\node_modules\isstream\package.json" />
+    <None Include="AppView\node_modules\isstream\README.md" />
+    <None Include="AppView\node_modules\jsbn\.npmignore" />
+    <None Include="AppView\node_modules\jsbn\LICENSE" />
+    <None Include="AppView\node_modules\jsbn\package.json" />
+    <None Include="AppView\node_modules\jsbn\README.md" />
+    <None Include="AppView\node_modules\json-schema-traverse\.eslintrc.yml" />
+    <None Include="AppView\node_modules\json-schema-traverse\.npmignore" />
+    <None Include="AppView\node_modules\json-schema-traverse\.travis.yml" />
+    <None Include="AppView\node_modules\json-schema-traverse\LICENSE" />
+    <None Include="AppView\node_modules\json-schema-traverse\package.json" />
+    <None Include="AppView\node_modules\json-schema-traverse\README.md" />
+    <None Include="AppView\node_modules\json-schema-traverse\spec\.eslintrc.yml" />
+    <None Include="AppView\node_modules\json-schema\draft-00\hyper-schema" />
+    <None Include="AppView\node_modules\json-schema\draft-00\json-ref" />
+    <None Include="AppView\node_modules\json-schema\draft-00\links" />
+    <None Include="AppView\node_modules\json-schema\draft-00\schema" />
+    <None Include="AppView\node_modules\json-schema\draft-01\hyper-schema" />
+    <None Include="AppView\node_modules\json-schema\draft-01\json-ref" />
+    <None Include="AppView\node_modules\json-schema\draft-01\links" />
+    <None Include="AppView\node_modules\json-schema\draft-01\schema" />
+    <None Include="AppView\node_modules\json-schema\draft-02\hyper-schema" />
+    <None Include="AppView\node_modules\json-schema\draft-02\json-ref" />
+    <None Include="AppView\node_modules\json-schema\draft-02\links" />
+    <None Include="AppView\node_modules\json-schema\draft-02\schema" />
+    <None Include="AppView\node_modules\json-schema\draft-03\examples\address" />
+    <None Include="AppView\node_modules\json-schema\draft-03\examples\calendar" />
+    <None Include="AppView\node_modules\json-schema\draft-03\examples\card" />
+    <None Include="AppView\node_modules\json-schema\draft-03\examples\geo" />
+    <None Include="AppView\node_modules\json-schema\draft-03\examples\interfaces" />
+    <None Include="AppView\node_modules\json-schema\draft-03\hyper-schema" />
+    <None Include="AppView\node_modules\json-schema\draft-03\json-ref" />
+    <None Include="AppView\node_modules\json-schema\draft-03\links" />
+    <None Include="AppView\node_modules\json-schema\draft-03\schema" />
+    <None Include="AppView\node_modules\json-schema\draft-04\hyper-schema" />
+    <None Include="AppView\node_modules\json-schema\draft-04\links" />
+    <None Include="AppView\node_modules\json-schema\draft-04\schema" />
+    <None Include="AppView\node_modules\json-schema\package.json" />
+    <None Include="AppView\node_modules\json-schema\README.md" />
+    <None Include="AppView\node_modules\json-stringify-safe\.npmignore" />
+    <None Include="AppView\node_modules\json-stringify-safe\CHANGELOG.md" />
+    <None Include="AppView\node_modules\json-stringify-safe\LICENSE" />
+    <None Include="AppView\node_modules\json-stringify-safe\Makefile" />
+    <None Include="AppView\node_modules\json-stringify-safe\package.json" />
+    <None Include="AppView\node_modules\json-stringify-safe\README.md" />
+    <None Include="AppView\node_modules\json-stringify-safe\test\mocha.opts" />
+    <None Include="AppView\node_modules\jsonfile\CHANGELOG.md" />
+    <None Include="AppView\node_modules\jsonfile\LICENSE" />
+    <None Include="AppView\node_modules\jsonfile\package.json" />
+    <None Include="AppView\node_modules\jsonfile\README.md" />
+    <None Include="AppView\node_modules\jsprim\CHANGES.md" />
+    <None Include="AppView\node_modules\jsprim\CONTRIBUTING.md" />
+    <None Include="AppView\node_modules\jsprim\LICENSE" />
+    <None Include="AppView\node_modules\jsprim\package.json" />
+    <None Include="AppView\node_modules\jsprim\README.md" />
+    <None Include="AppView\node_modules\load-json-file\license" />
+    <None Include="AppView\node_modules\load-json-file\package.json" />
+    <None Include="AppView\node_modules\load-json-file\readme.md" />
+    <None Include="AppView\node_modules\loud-rejection\license" />
+    <None Include="AppView\node_modules\loud-rejection\package.json" />
+    <None Include="AppView\node_modules\loud-rejection\readme.md" />
+    <None Include="AppView\node_modules\map-obj\license" />
+    <None Include="AppView\node_modules\map-obj\package.json" />
+    <None Include="AppView\node_modules\map-obj\readme.md" />
+    <None Include="AppView\node_modules\meow\license" />
+    <None Include="AppView\node_modules\meow\package.json" />
+    <None Include="AppView\node_modules\meow\readme.md" />
+    <None Include="AppView\node_modules\mime-db\db.json" />
+    <None Include="AppView\node_modules\mime-db\HISTORY.md" />
+    <None Include="AppView\node_modules\mime-db\LICENSE" />
+    <None Include="AppView\node_modules\mime-db\package.json" />
+    <None Include="AppView\node_modules\mime-db\README.md" />
+    <None Include="AppView\node_modules\mime-types\HISTORY.md" />
+    <None Include="AppView\node_modules\mime-types\LICENSE" />
+    <None Include="AppView\node_modules\mime-types\package.json" />
+    <None Include="AppView\node_modules\mime-types\README.md" />
+    <None Include="AppView\node_modules\minimist\.travis.yml" />
+    <None Include="AppView\node_modules\minimist\LICENSE" />
+    <None Include="AppView\node_modules\minimist\package.json" />
+    <None Include="AppView\node_modules\minimist\readme.markdown" />
+    <None Include="AppView\node_modules\mkdirp\.travis.yml" />
+    <None Include="AppView\node_modules\mkdirp\LICENSE" />
+    <None Include="AppView\node_modules\mkdirp\node_modules\minimist\.travis.yml" />
+    <None Include="AppView\node_modules\mkdirp\node_modules\minimist\LICENSE" />
+    <None Include="AppView\node_modules\mkdirp\node_modules\minimist\package.json" />
+    <None Include="AppView\node_modules\mkdirp\node_modules\minimist\readme.markdown" />
+    <None Include="AppView\node_modules\mkdirp\package.json" />
+    <None Include="AppView\node_modules\mkdirp\readme.markdown" />
+    <None Include="AppView\node_modules\ms\license.md" />
+    <None Include="AppView\node_modules\ms\package.json" />
+    <None Include="AppView\node_modules\ms\readme.md" />
+    <None Include="AppView\node_modules\normalize-package-data\AUTHORS" />
+    <None Include="AppView\node_modules\normalize-package-data\lib\typos.json" />
+    <None Include="AppView\node_modules\normalize-package-data\lib\warning_messages.json" />
+    <None Include="AppView\node_modules\normalize-package-data\LICENSE" />
+    <None Include="AppView\node_modules\normalize-package-data\package.json" />
+    <None Include="AppView\node_modules\normalize-package-data\README.md" />
+    <None Include="AppView\node_modules\nugget\.npmignore" />
+    <None Include="AppView\node_modules\nugget\.travis.yml" />
+    <None Include="AppView\node_modules\nugget\collaborators.md" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\.coveralls.yml" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\.eslintrc" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\.npmignore" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\.travis.yml" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\CHANGELOG.md" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\component.json" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\LICENSE" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\Makefile" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\package.json" />
+    <None Include="AppView\node_modules\nugget\node_modules\debug\README.md" />
+    <None Include="AppView\node_modules\nugget\node_modules\ms\license.md" />
+    <None Include="AppView\node_modules\nugget\node_modules\ms\package.json" />
+    <None Include="AppView\node_modules\nugget\node_modules\ms\readme.md" />
+    <None Include="AppView\node_modules\nugget\package.json" />
+    <None Include="AppView\node_modules\nugget\readme.md" />
+    <None Include="AppView\node_modules\number-is-nan\license" />
+    <None Include="AppView\node_modules\number-is-nan\package.json" />
+    <None Include="AppView\node_modules\number-is-nan\readme.md" />
+    <None Include="AppView\node_modules\oauth-sign\LICENSE" />
+    <None Include="AppView\node_modules\oauth-sign\package.json" />
+    <None Include="AppView\node_modules\oauth-sign\README.md" />
+    <None Include="AppView\node_modules\object-assign\license" />
+    <None Include="AppView\node_modules\object-assign\package.json" />
+    <None Include="AppView\node_modules\object-assign\readme.md" />
+    <None Include="AppView\node_modules\object-keys\.npmignore" />
+    <None Include="AppView\node_modules\object-keys\.travis.yml" />
+    <None Include="AppView\node_modules\object-keys\package.json" />
+    <None Include="AppView\node_modules\object-keys\README.md" />
+    <None Include="AppView\node_modules\parse-json\license" />
+    <None Include="AppView\node_modules\parse-json\package.json" />
+    <None Include="AppView\node_modules\parse-json\readme.md" />
+    <None Include="AppView\node_modules\path-exists\license" />
+    <None Include="AppView\node_modules\path-exists\package.json" />
+    <None Include="AppView\node_modules\path-exists\readme.md" />
+    <None Include="AppView\node_modules\path-type\license" />
+    <None Include="AppView\node_modules\path-type\package.json" />
+    <None Include="AppView\node_modules\path-type\readme.md" />
+    <None Include="AppView\node_modules\pend\LICENSE" />
+    <None Include="AppView\node_modules\pend\package.json" />
+    <None Include="AppView\node_modules\pend\README.md" />
+    <None Include="AppView\node_modules\performance-now\.npmignore" />
+    <None Include="AppView\node_modules\performance-now\.tm_properties" />
+    <None Include="AppView\node_modules\performance-now\.travis.yml" />
+    <None Include="AppView\node_modules\performance-now\lib\performance-now.js.map" />
+    <None Include="AppView\node_modules\performance-now\package.json" />
+    <None Include="AppView\node_modules\performance-now\README.md" />
+    <None Include="AppView\node_modules\performance-now\src\performance-now.coffee" />
+    <None Include="AppView\node_modules\performance-now\test\mocha.opts" />
+    <None Include="AppView\node_modules\performance-now\test\performance-now.coffee" />
+    <None Include="AppView\node_modules\performance-now\test\scripts.coffee" />
+    <None Include="AppView\node_modules\performance-now\test\scripts\delayed-call.coffee" />
+    <None Include="AppView\node_modules\performance-now\test\scripts\delayed-require.coffee" />
+    <None Include="AppView\node_modules\performance-now\test\scripts\difference.coffee" />
+    <None Include="AppView\node_modules\performance-now\test\scripts\initial-value.coffee" />
+    <None Include="AppView\node_modules\pify\license" />
+    <None Include="AppView\node_modules\pify\package.json" />
+    <None Include="AppView\node_modules\pify\readme.md" />
+    <None Include="AppView\node_modules\pinkie-promise\license" />
+    <None Include="AppView\node_modules\pinkie-promise\package.json" />
+    <None Include="AppView\node_modules\pinkie-promise\readme.md" />
+    <None Include="AppView\node_modules\pinkie\license" />
+    <None Include="AppView\node_modules\pinkie\package.json" />
+    <None Include="AppView\node_modules\pinkie\readme.md" />
+    <None Include="AppView\node_modules\pretty-bytes\license" />
+    <None Include="AppView\node_modules\pretty-bytes\package.json" />
+    <None Include="AppView\node_modules\pretty-bytes\readme.md" />
+    <None Include="AppView\node_modules\process-nextick-args\license.md" />
+    <None Include="AppView\node_modules\process-nextick-args\package.json" />
+    <None Include="AppView\node_modules\process-nextick-args\readme.md" />
+    <None Include="AppView\node_modules\progress-stream\.npmignore" />
+    <None Include="AppView\node_modules\progress-stream\LICENSE" />
+    <None Include="AppView\node_modules\progress-stream\package.json" />
+    <None Include="AppView\node_modules\progress-stream\README.md" />
+    <None Include="AppView\node_modules\psl\.eslintignore" />
+    <None Include="AppView\node_modules\psl\.eslintrc" />
+    <None Include="AppView\node_modules\psl\.travis.yml" />
+    <None Include="AppView\node_modules\psl\data\rules.json" />
+    <None Include="AppView\node_modules\psl\package.json" />
+    <None Include="AppView\node_modules\psl\README.md" />
+    <None Include="AppView\node_modules\psl\yarn.lock" />
+    <None Include="AppView\node_modules\punycode\package.json" />
+    <None Include="AppView\node_modules\punycode\README.md" />
+    <None Include="AppView\node_modules\qs\.editorconfig" />
+    <None Include="AppView\node_modules\qs\.eslintignore" />
+    <None Include="AppView\node_modules\qs\.eslintrc" />
+    <None Include="AppView\node_modules\qs\CHANGELOG.md" />
+    <None Include="AppView\node_modules\qs\LICENSE" />
+    <None Include="AppView\node_modules\qs\package.json" />
+    <None Include="AppView\node_modules\qs\README.md" />
+    <None Include="AppView\node_modules\qs\test\.eslintrc" />
+    <None Include="AppView\node_modules\rc\LICENSE.APACHE2" />
+    <None Include="AppView\node_modules\rc\LICENSE.BSD" />
+    <None Include="AppView\node_modules\rc\LICENSE.MIT" />
+    <None Include="AppView\node_modules\rc\package.json" />
+    <None Include="AppView\node_modules\rc\README.md" />
+    <None Include="AppView\node_modules\read-pkg-up\license" />
+    <None Include="AppView\node_modules\read-pkg-up\package.json" />
+    <None Include="AppView\node_modules\read-pkg-up\readme.md" />
+    <None Include="AppView\node_modules\read-pkg\license" />
+    <None Include="AppView\node_modules\read-pkg\package.json" />
+    <None Include="AppView\node_modules\read-pkg\readme.md" />
+    <None Include="AppView\node_modules\readable-stream\.npmignore" />
+    <None Include="AppView\node_modules\readable-stream\float.patch" />
+    <None Include="AppView\node_modules\readable-stream\LICENSE" />
+    <None Include="AppView\node_modules\readable-stream\package.json" />
+    <None Include="AppView\node_modules\readable-stream\README.md" />
+    <None Include="AppView\node_modules\redent\license" />
+    <None Include="AppView\node_modules\redent\package.json" />
+    <None Include="AppView\node_modules\redent\readme.md" />
+    <None Include="AppView\node_modules\repeating\license" />
+    <None Include="AppView\node_modules\repeating\package.json" />
+    <None Include="AppView\node_modules\repeating\readme.md" />
+    <None Include="AppView\node_modules\request\CHANGELOG.md" />
+    <None Include="AppView\node_modules\request\LICENSE" />
+    <None Include="AppView\node_modules\request\package.json" />
+    <None Include="AppView\node_modules\request\README.md" />
+    <None Include="AppView\node_modules\safe-buffer\LICENSE" />
+    <None Include="AppView\node_modules\safe-buffer\package.json" />
+    <None Include="AppView\node_modules\safe-buffer\README.md" />
+    <None Include="AppView\node_modules\safer-buffer\LICENSE" />
+    <None Include="AppView\node_modules\safer-buffer\package.json" />
+    <None Include="AppView\node_modules\safer-buffer\Porting-Buffer.md" />
+    <None Include="AppView\node_modules\safer-buffer\Readme.md" />
+    <None Include="AppView\node_modules\semver\bin\semver" />
+    <None Include="AppView\node_modules\semver\LICENSE" />
+    <None Include="AppView\node_modules\semver\package.json" />
+    <None Include="AppView\node_modules\semver\range.bnf" />
+    <None Include="AppView\node_modules\semver\README.md" />
+    <None Include="AppView\node_modules\signal-exit\CHANGELOG.md" />
+    <None Include="AppView\node_modules\signal-exit\package.json" />
+    <None Include="AppView\node_modules\signal-exit\README.md" />
+    <None Include="AppView\node_modules\single-line-log\.npmignore" />
+    <None Include="AppView\node_modules\single-line-log\LICENSE" />
+    <None Include="AppView\node_modules\single-line-log\package.json" />
+    <None Include="AppView\node_modules\single-line-log\README.md" />
+    <None Include="AppView\node_modules\spdx-correct\LICENSE" />
+    <None Include="AppView\node_modules\spdx-correct\package.json" />
+    <None Include="AppView\node_modules\spdx-correct\README.md" />
+    <None Include="AppView\node_modules\spdx-exceptions\index.json" />
+    <None Include="AppView\node_modules\spdx-exceptions\package.json" />
+    <None Include="AppView\node_modules\spdx-exceptions\README.md" />
+    <None Include="AppView\node_modules\spdx-exceptions\test.log" />
+    <None Include="AppView\node_modules\spdx-expression-parse\AUTHORS" />
+    <None Include="AppView\node_modules\spdx-expression-parse\LICENSE" />
+    <None Include="AppView\node_modules\spdx-expression-parse\package.json" />
+    <None Include="AppView\node_modules\spdx-expression-parse\README.md" />
+    <None Include="AppView\node_modules\spdx-license-ids\deprecated.json" />
+    <None Include="AppView\node_modules\spdx-license-ids\index.json" />
+    <None Include="AppView\node_modules\spdx-license-ids\package.json" />
+    <None Include="AppView\node_modules\spdx-license-ids\README.md" />
+    <None Include="AppView\node_modules\speedometer\LICENSE" />
+    <None Include="AppView\node_modules\speedometer\package.json" />
+    <None Include="AppView\node_modules\speedometer\README.md" />
+    <None Include="AppView\node_modules\sshpk\.npmignore" />
+    <None Include="AppView\node_modules\sshpk\.travis.yml" />
+    <None Include="AppView\node_modules\sshpk\bin\sshpk-conv" />
+    <None Include="AppView\node_modules\sshpk\bin\sshpk-sign" />
+    <None Include="AppView\node_modules\sshpk\bin\sshpk-verify" />
+    <None Include="AppView\node_modules\sshpk\LICENSE" />
+    <None Include="AppView\node_modules\sshpk\man\man1\sshpk-conv.1" />
+    <None Include="AppView\node_modules\sshpk\man\man1\sshpk-sign.1" />
+    <None Include="AppView\node_modules\sshpk\man\man1\sshpk-verify.1" />
+    <None Include="AppView\node_modules\sshpk\package.json" />
+    <None Include="AppView\node_modules\sshpk\README.md" />
+    <None Include="AppView\node_modules\string-width\license" />
+    <None Include="AppView\node_modules\string-width\package.json" />
+    <None Include="AppView\node_modules\string-width\readme.md" />
+    <None Include="AppView\node_modules\string_decoder\.npmignore" />
+    <None Include="AppView\node_modules\string_decoder\LICENSE" />
+    <None Include="AppView\node_modules\string_decoder\package.json" />
+    <None Include="AppView\node_modules\string_decoder\README.md" />
+    <None Include="AppView\node_modules\strip-ansi\license" />
+    <None Include="AppView\node_modules\strip-ansi\package.json" />
+    <None Include="AppView\node_modules\strip-ansi\readme.md" />
+    <None Include="AppView\node_modules\strip-bom\license" />
+    <None Include="AppView\node_modules\strip-bom\package.json" />
+    <None Include="AppView\node_modules\strip-bom\readme.md" />
+    <None Include="AppView\node_modules\strip-indent\license" />
+    <None Include="AppView\node_modules\strip-indent\package.json" />
+    <None Include="AppView\node_modules\strip-indent\readme.md" />
+    <None Include="AppView\node_modules\strip-json-comments\license" />
+    <None Include="AppView\node_modules\strip-json-comments\package.json" />
+    <None Include="AppView\node_modules\strip-json-comments\readme.md" />
+    <None Include="AppView\node_modules\sumchecker\LICENSE" />
+    <None Include="AppView\node_modules\sumchecker\NEWS.md" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\.coveralls.yml" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\.eslintrc" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\.npmignore" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\.travis.yml" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\CHANGELOG.md" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\component.json" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\LICENSE" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\Makefile" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\package.json" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\debug\README.md" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\ms\license.md" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\ms\package.json" />
+    <None Include="AppView\node_modules\sumchecker\node_modules\ms\readme.md" />
+    <None Include="AppView\node_modules\sumchecker\package.json" />
+    <None Include="AppView\node_modules\sumchecker\README.md" />
+    <None Include="AppView\node_modules\throttleit\.npmignore" />
+    <None Include="AppView\node_modules\throttleit\component.json" />
+    <None Include="AppView\node_modules\throttleit\History.md" />
+    <None Include="AppView\node_modules\throttleit\Makefile" />
+    <None Include="AppView\node_modules\throttleit\package.json" />
+    <None Include="AppView\node_modules\throttleit\Readme.md" />
+    <None Include="AppView\node_modules\through2\.jshintrc" />
+    <None Include="AppView\node_modules\through2\.npmignore" />
+    <None Include="AppView\node_modules\through2\.travis.yml" />
+    <None Include="AppView\node_modules\through2\LICENSE" />
+    <None Include="AppView\node_modules\through2\package.json" />
+    <None Include="AppView\node_modules\through2\README.md" />
+    <None Include="AppView\node_modules\tough-cookie\LICENSE" />
+    <None Include="AppView\node_modules\tough-cookie\package.json" />
+    <None Include="AppView\node_modules\tough-cookie\README.md" />
+    <None Include="AppView\node_modules\trim-newlines\license" />
+    <None Include="AppView\node_modules\trim-newlines\package.json" />
+    <None Include="AppView\node_modules\trim-newlines\readme.md" />
+    <None Include="AppView\node_modules\tunnel-agent\LICENSE" />
+    <None Include="AppView\node_modules\tunnel-agent\package.json" />
+    <None Include="AppView\node_modules\tunnel-agent\README.md" />
+    <None Include="AppView\node_modules\tweetnacl\.npmignore" />
+    <None Include="AppView\node_modules\tweetnacl\AUTHORS.md" />
+    <None Include="AppView\node_modules\tweetnacl\CHANGELOG.md" />
+    <None Include="AppView\node_modules\tweetnacl\LICENSE" />
+    <None Include="AppView\node_modules\tweetnacl\package.json" />
+    <None Include="AppView\node_modules\tweetnacl\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="AppView\node_modules\tweetnacl\README.md" />
+    <None Include="AppView\node_modules\typedarray\.travis.yml" />
+    <None Include="AppView\node_modules\typedarray\LICENSE" />
+    <None Include="AppView\node_modules\typedarray\package.json" />
+    <None Include="AppView\node_modules\typedarray\readme.markdown" />
+    <None Include="AppView\node_modules\universalify\LICENSE" />
+    <None Include="AppView\node_modules\universalify\package.json" />
+    <None Include="AppView\node_modules\universalify\README.md" />
+    <None Include="AppView\node_modules\util-deprecate\History.md" />
+    <None Include="AppView\node_modules\util-deprecate\LICENSE" />
+    <None Include="AppView\node_modules\util-deprecate\package.json" />
+    <None Include="AppView\node_modules\util-deprecate\README.md" />
+    <None Include="AppView\node_modules\uuid\.eslintrc.json" />
+    <None Include="AppView\node_modules\uuid\AUTHORS" />
+    <None Include="AppView\node_modules\uuid\bin\uuid" />
+    <None Include="AppView\node_modules\uuid\CHANGELOG.md" />
+    <None Include="AppView\node_modules\uuid\LICENSE.md" />
+    <None Include="AppView\node_modules\uuid\package.json" />
+    <None Include="AppView\node_modules\uuid\README.md" />
+    <None Include="AppView\node_modules\uuid\README_js.md" />
+    <None Include="AppView\node_modules\validate-npm-package-license\LICENSE" />
+    <None Include="AppView\node_modules\validate-npm-package-license\package.json" />
+    <None Include="AppView\node_modules\validate-npm-package-license\README.md" />
+    <None Include="AppView\node_modules\verror\.npmignore" />
+    <None Include="AppView\node_modules\verror\CHANGES.md" />
+    <None Include="AppView\node_modules\verror\CONTRIBUTING.md" />
+    <None Include="AppView\node_modules\verror\LICENSE" />
+    <None Include="AppView\node_modules\verror\package.json" />
+    <None Include="AppView\node_modules\verror\README.md" />
+    <None Include="AppView\node_modules\xtend\.npmignore" />
+    <None Include="AppView\node_modules\xtend\LICENCE" />
+    <None Include="AppView\node_modules\xtend\Makefile" />
+    <None Include="AppView\node_modules\xtend\package.json" />
+    <None Include="AppView\node_modules\xtend\README.md" />
+    <None Include="AppView\node_modules\yauzl\.npmignore" />
+    <None Include="AppView\node_modules\yauzl\.travis.yml" />
+    <None Include="AppView\node_modules\yauzl\LICENSE" />
+    <None Include="AppView\node_modules\yauzl\package.json" />
+    <None Include="AppView\node_modules\yauzl\README.md" />
+    <None Include="AppView\package-lock.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AppView\package.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JpFrameworkDataSet.xsc">
+      <DependentUpon>JpFrameworkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JpFrameworkDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JpFrameworkDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JpFrameworkDataSet.xss">
+      <DependentUpon>JpFrameworkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppView\app\css\admin.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\css\josekine.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\htmls\control-add.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\htmls\control.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\htmls\login.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\images\icon\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\iconfont1.0.8\iconfont.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\iconfont1.0.8\iconfont.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\iconfont1.0.8\iconfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\images\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\images\suop.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\jquery.extends\jquery.bottomtip.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\jquery.extends\jquery.checkInput.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\jquery.extends\jquery.layer.load.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\jquery.extends\jquery.temp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\layui.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\layui.mobile.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\code.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\laydate\default\laydate.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\layer\default\icon-ext.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\layer\default\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\layer\default\layer.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\layer\default\loading-0.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\layer\default\loading-1.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\css\modules\layer\default\loading-2.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\font\iconfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\0.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\1.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\10.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\11.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\12.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\13.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\14.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\15.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\16.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\17.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\18.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\19.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\2.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\20.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\21.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\22.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\23.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\24.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\25.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\26.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\27.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\28.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\29.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\3.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\30.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\31.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\32.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\33.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\34.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\35.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\36.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\37.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\38.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\39.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\4.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\40.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\41.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\42.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\43.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\44.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\45.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\46.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\47.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\48.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\49.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\5.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\50.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\51.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\52.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\53.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\54.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\55.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\56.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\57.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\58.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\59.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\6.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\60.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\61.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\62.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\63.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\64.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\65.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\66.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\67.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\68.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\69.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\7.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\70.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\71.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\8.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\images\face\9.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\layui.all.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\layui.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\carousel.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\code.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\colorpicker.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\element.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\flow.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\form.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\laydate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\layedit.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\layer.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\laypage.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\laytpl.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\mobile.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\rate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\slider.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\table.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\tree.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\upload.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\layuis\lay\modules\util.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\app\lib\pepflashplayer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\ElectronApp.njsproj.user">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\extends\suop\images\icon\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\extends\suop\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\extends\suop\js\index.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\function-main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\function.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\hander.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\jquery-2.2.0.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppView\node_modules\ajv\.tonic_example.js" />
+    <Content Include="AppView\node_modules\ajv\dist\ajv.bundle.js" />
+    <Content Include="AppView\node_modules\ajv\dist\ajv.min.js" />
+    <Content Include="AppView\node_modules\ajv\dist\nodent.min.js" />
+    <Content Include="AppView\node_modules\ajv\dist\regenerator.min.js" />
+    <Content Include="AppView\node_modules\ajv\lib\%24data.js" />
+    <Content Include="AppView\node_modules\ajv\lib\ajv.js" />
+    <Content Include="AppView\node_modules\ajv\lib\cache.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\async.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\equal.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\error_classes.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\formats.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\index.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\resolve.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\rules.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\schema_obj.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\ucs2length.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\util.js" />
+    <Content Include="AppView\node_modules\ajv\lib\compile\_rules.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\allOf.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\anyOf.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\const.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\contains.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\custom.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\dependencies.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\enum.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\format.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\items.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\multipleOf.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\not.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\oneOf.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\pattern.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\properties.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\propertyNames.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\ref.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\required.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\uniqueItems.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\validate.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\_limit.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\_limitItems.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\_limitLength.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dotjs\_limitProperties.js" />
+    <Content Include="AppView\node_modules\ajv\lib\dot\coerce.def" />
+    <Content Include="AppView\node_modules\ajv\lib\dot\defaults.def" />
+    <Content Include="AppView\node_modules\ajv\lib\dot\definitions.def" />
+    <Content Include="AppView\node_modules\ajv\lib\dot\errors.def" />
+    <Content Include="AppView\node_modules\ajv\lib\dot\missing.def" />
+    <Content Include="AppView\node_modules\ajv\lib\keyword.js" />
+    <Content Include="AppView\node_modules\ajv\lib\patternGroups.js" />
+    <Content Include="AppView\node_modules\ajv\scripts\bundle.js" />
+    <Content Include="AppView\node_modules\ajv\scripts\compile-dots.js" />
+    <Content Include="AppView\node_modules\ansi-regex\index.js" />
+    <Content Include="AppView\node_modules\array-find-index\index.js" />
+    <Content Include="AppView\node_modules\asn1\lib\ber\errors.js" />
+    <Content Include="AppView\node_modules\asn1\lib\ber\index.js" />
+    <Content Include="AppView\node_modules\asn1\lib\ber\reader.js" />
+    <Content Include="AppView\node_modules\asn1\lib\ber\types.js" />
+    <Content Include="AppView\node_modules\asn1\lib\ber\writer.js" />
+    <Content Include="AppView\node_modules\asn1\lib\index.js" />
+    <Content Include="AppView\node_modules\assert-plus\assert.js" />
+    <Content Include="AppView\node_modules\asynckit\bench.js" />
+    <Content Include="AppView\node_modules\asynckit\index.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\abort.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\async.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\defer.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\iterate.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\readable_asynckit.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\readable_parallel.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\readable_serial.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\readable_serial_ordered.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\state.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\streamify.js" />
+    <Content Include="AppView\node_modules\asynckit\lib\terminator.js" />
+    <Content Include="AppView\node_modules\asynckit\parallel.js" />
+    <Content Include="AppView\node_modules\asynckit\serial.js" />
+    <Content Include="AppView\node_modules\asynckit\serialOrdered.js" />
+    <Content Include="AppView\node_modules\asynckit\stream.js" />
+    <Content Include="AppView\node_modules\aws-sign2\index.js" />
+    <Content Include="AppView\node_modules\aws4\aws4.js" />
+    <Content Include="AppView\node_modules\aws4\lru.js" />
+    <Content Include="AppView\node_modules\bcrypt-pbkdf\index.js" />
+    <Content Include="AppView\node_modules\buffer-from\index.js" />
+    <Content Include="AppView\node_modules\builtin-modules\index.js" />
+    <Content Include="AppView\node_modules\builtin-modules\static.js" />
+    <Content Include="AppView\node_modules\camelcase-keys\index.js" />
+    <Content Include="AppView\node_modules\camelcase\index.js" />
+    <Content Include="AppView\node_modules\caseless\index.js" />
+    <Content Include="AppView\node_modules\caseless\test.js" />
+    <Content Include="AppView\node_modules\code-point-at\index.js" />
+    <Content Include="AppView\node_modules\combined-stream\lib\combined_stream.js" />
+    <Content Include="AppView\node_modules\combined-stream\lib\defer.js" />
+    <Content Include="AppView\node_modules\concat-stream\index.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\isarray\index.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\isarray\test.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\duplex-browser.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\duplex.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\internal\streams\BufferList.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\internal\streams\destroy.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\internal\streams\stream-browser.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\internal\streams\stream.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\_stream_duplex.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\_stream_passthrough.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\_stream_readable.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\_stream_transform.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\lib\_stream_writable.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\passthrough.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\readable-browser.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\readable.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\transform.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\writable-browser.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\readable-stream\writable.js" />
+    <Content Include="AppView\node_modules\concat-stream\node_modules\string_decoder\lib\string_decoder.js" />
+    <Content Include="AppView\node_modules\core-util-is\lib\util.js" />
+    <Content Include="AppView\node_modules\core-util-is\test.js" />
+    <Content Include="AppView\node_modules\co\index.js" />
+    <Content Include="AppView\node_modules\currently-unhandled\browser.js" />
+    <Content Include="AppView\node_modules\currently-unhandled\core.js" />
+    <Content Include="AppView\node_modules\currently-unhandled\index.js" />
+    <Content Include="AppView\node_modules\dashdash\lib\dashdash.js" />
+    <Content Include="AppView\node_modules\dashdash\LICENSE.txt" />
+    <Content Include="AppView\node_modules\debug\dist\debug.js" />
+    <Content Include="AppView\node_modules\debug\node.js" />
+    <Content Include="AppView\node_modules\debug\src\browser.js" />
+    <Content Include="AppView\node_modules\debug\src\common.js" />
+    <Content Include="AppView\node_modules\debug\src\index.js" />
+    <Content Include="AppView\node_modules\debug\src\node.js" />
+    <Content Include="AppView\node_modules\decamelize\index.js" />
+    <Content Include="AppView\node_modules\deep-extend\index.js" />
+    <Content Include="AppView\node_modules\deep-extend\lib\deep-extend.js" />
+    <Content Include="AppView\node_modules\delayed-stream\lib\delayed_stream.js" />
+    <Content Include="AppView\node_modules\ecc-jsbn\index.js" />
+    <Content Include="AppView\node_modules\ecc-jsbn\lib\ec.js" />
+    <Content Include="AppView\node_modules\ecc-jsbn\lib\sec.js" />
+    <Content Include="AppView\node_modules\ecc-jsbn\test.js" />
+    <Content Include="AppView\node_modules\electron-download\lib\arch.js" />
+    <Content Include="AppView\node_modules\electron-download\lib\cli.js" />
+    <Content Include="AppView\node_modules\electron-download\lib\index.js" />
+    <Content Include="AppView\node_modules\electron\cli.js" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-console-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-datetime-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-debug-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-errorhandling-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-file-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-file-l1-2-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-file-l2-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-handle-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-heap-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-interlocked-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-libraryloader-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-localization-l1-2-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-memory-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-namedpipe-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-processenvironment-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-processthreads-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-processthreads-l1-1-1.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-profile-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-rtlsupport-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-string-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-synch-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-synch-l1-2-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-sysinfo-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-timezone-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-core-util-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-conio-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-convert-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-environment-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-filesystem-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-heap-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-locale-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-math-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-multibyte-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-private-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-process-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-runtime-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-stdio-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-string-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-time-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\api-ms-win-crt-utility-l1-1-0.dll" />
+    <Content Include="AppView\node_modules\electron\dist\d3dcompiler_47.dll" />
+    <Content Include="AppView\node_modules\electron\dist\electron.exe" />
+    <Content Include="AppView\node_modules\electron\dist\ffmpeg.dll" />
+    <Content Include="AppView\node_modules\electron\dist\libEGL.dll" />
+    <Content Include="AppView\node_modules\electron\dist\libGLESv2.dll" />
+    <Content Include="AppView\node_modules\electron\dist\LICENSES.chromium.html" />
+    <Content Include="AppView\node_modules\electron\dist\msvcp140.dll" />
+    <Content Include="AppView\node_modules\electron\dist\node.dll" />
+    <Content Include="AppView\node_modules\electron\dist\ucrtbase.dll" />
+    <Content Include="AppView\node_modules\electron\dist\vcruntime140.dll" />
+    <Content Include="AppView\node_modules\electron\index.js" />
+    <Content Include="AppView\node_modules\electron\install.js" />
+    <Content Include="AppView\node_modules\electron\path.txt" />
+    <Content Include="AppView\node_modules\env-paths\index.js" />
+    <Content Include="AppView\node_modules\error-ex\index.js" />
+    <Content Include="AppView\node_modules\extend\index.js" />
+    <Content Include="AppView\node_modules\extract-zip\cli.js" />
+    <Content Include="AppView\node_modules\extract-zip\index.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\karma.conf.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\node.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\src\browser.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\src\debug.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\src\index.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\src\inspector-log.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\debug\src\node.js" />
+    <Content Include="AppView\node_modules\extract-zip\node_modules\ms\index.js" />
+    <Content Include="AppView\node_modules\extsprintf\lib\extsprintf.js" />
+    <Content Include="AppView\node_modules\fast-deep-equal\index.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\benchmark\index.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\example\key_cmp.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\example\nested.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\example\str.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\example\value_cmp.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\index.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\test\cmp.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\test\nested.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\test\str.js" />
+    <Content Include="AppView\node_modules\fast-json-stable-stringify\test\to-json.js" />
+    <Content Include="AppView\node_modules\fd-slicer\index.js" />
+    <Content Include="AppView\node_modules\fd-slicer\test\test.js" />
+    <Content Include="AppView\node_modules\find-up\index.js" />
+    <Content Include="AppView\node_modules\find-up\node_modules\path-exists\index.js" />
+    <Content Include="AppView\node_modules\forever-agent\index.js" />
+    <Content Include="AppView\node_modules\form-data\lib\browser.js" />
+    <Content Include="AppView\node_modules\form-data\lib\form_data.js" />
+    <Content Include="AppView\node_modules\form-data\lib\populate.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\copy-sync\copy-file-sync.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\copy-sync\copy-sync.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\copy-sync\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\copy\copy.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\copy\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\copy\ncp.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\empty\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\ensure\file.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\ensure\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\ensure\link.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\ensure\symlink-paths.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\ensure\symlink-type.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\ensure\symlink.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\fs\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\json\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\json\jsonfile.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\json\output-json-sync.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\json\output-json.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\mkdirs\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\mkdirs\mkdirs-sync.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\mkdirs\mkdirs.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\mkdirs\win32.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\move-sync\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\move\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\output\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\path-exists\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\remove\index.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\remove\rimraf.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\util\assign.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\util\buffer.js" />
+    <Content Include="AppView\node_modules\fs-extra\lib\util\utimes.js" />
+    <Content Include="AppView\node_modules\get-stdin\index.js" />
+    <Content Include="AppView\node_modules\getpass\lib\index.js" />
+    <Content Include="AppView\node_modules\graceful-fs\clone.js" />
+    <Content Include="AppView\node_modules\graceful-fs\graceful-fs.js" />
+    <Content Include="AppView\node_modules\graceful-fs\legacy-streams.js" />
+    <Content Include="AppView\node_modules\graceful-fs\polyfills.js" />
+    <Content Include="AppView\node_modules\har-schema\lib\index.js" />
+    <Content Include="AppView\node_modules\har-validator\lib\async.js" />
+    <Content Include="AppView\node_modules\har-validator\lib\error.js" />
+    <Content Include="AppView\node_modules\har-validator\lib\promise.js" />
+    <Content Include="AppView\node_modules\hosted-git-info\git-host-info.js" />
+    <Content Include="AppView\node_modules\hosted-git-info\git-host.js" />
+    <Content Include="AppView\node_modules\hosted-git-info\index.js" />
+    <Content Include="AppView\node_modules\http-signature\lib\index.js" />
+    <Content Include="AppView\node_modules\http-signature\lib\parser.js" />
+    <Content Include="AppView\node_modules\http-signature\lib\signer.js" />
+    <Content Include="AppView\node_modules\http-signature\lib\utils.js" />
+    <Content Include="AppView\node_modules\http-signature\lib\verify.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\dbcs-codec.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\dbcs-data.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\index.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\internal.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\sbcs-codec.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\sbcs-data-generated.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\sbcs-data.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\utf16.js" />
+    <Content Include="AppView\node_modules\iconv-lite\encodings\utf7.js" />
+    <Content Include="AppView\node_modules\iconv-lite\lib\bom-handling.js" />
+    <Content Include="AppView\node_modules\iconv-lite\lib\extend-node.js" />
+    <Content Include="AppView\node_modules\iconv-lite\lib\index.js" />
+    <Content Include="AppView\node_modules\iconv-lite\lib\streams.js" />
+    <Content Include="AppView\node_modules\indent-string\index.js" />
+    <Content Include="AppView\node_modules\inherits\inherits.js" />
+    <Content Include="AppView\node_modules\inherits\inherits_browser.js" />
+    <Content Include="AppView\node_modules\ini\ini.js" />
+    <Content Include="AppView\node_modules\is-arrayish\index.js" />
+    <Content Include="AppView\node_modules\is-builtin-module\index.js" />
+    <Content Include="AppView\node_modules\is-finite\index.js" />
+    <Content Include="AppView\node_modules\is-fullwidth-code-point\index.js" />
+    <Content Include="AppView\node_modules\is-typedarray\index.js" />
+    <Content Include="AppView\node_modules\is-typedarray\test.js" />
+    <Content Include="AppView\node_modules\is-utf8\is-utf8.js" />
+    <Content Include="AppView\node_modules\isarray\build\build.js" />
+    <Content Include="AppView\node_modules\isarray\index.js" />
+    <Content Include="AppView\node_modules\isstream\isstream.js" />
+    <Content Include="AppView\node_modules\isstream\test.js" />
+    <Content Include="AppView\node_modules\jsbn\example.html" />
+    <Content Include="AppView\node_modules\jsbn\example.js" />
+    <Content Include="AppView\node_modules\jsbn\index.js" />
+    <Content Include="AppView\node_modules\json-schema-traverse\index.js" />
+    <Content Include="AppView\node_modules\json-schema-traverse\spec\fixtures\schema.js" />
+    <Content Include="AppView\node_modules\json-schema-traverse\spec\index.spec.js" />
+    <Content Include="AppView\node_modules\json-schema\draft-zyp-json-schema-03.xml" />
+    <Content Include="AppView\node_modules\json-schema\draft-zyp-json-schema-04.xml" />
+    <Content Include="AppView\node_modules\json-schema\lib\links.js" />
+    <Content Include="AppView\node_modules\json-schema\lib\validate.js" />
+    <Content Include="AppView\node_modules\json-schema\test\tests.js" />
+    <Content Include="AppView\node_modules\json-stringify-safe\stringify.js" />
+    <Content Include="AppView\node_modules\json-stringify-safe\test\stringify_test.js" />
+    <Content Include="AppView\node_modules\jsonfile\index.js" />
+    <Content Include="AppView\node_modules\jsprim\lib\jsprim.js" />
+    <Content Include="AppView\node_modules\load-json-file\index.js" />
+    <Content Include="AppView\node_modules\loud-rejection\api.js" />
+    <Content Include="AppView\node_modules\loud-rejection\index.js" />
+    <Content Include="AppView\node_modules\loud-rejection\register.js" />
+    <Content Include="AppView\node_modules\map-obj\index.js" />
+    <Content Include="AppView\node_modules\meow\index.js" />
+    <Content Include="AppView\node_modules\mime-db\index.js" />
+    <Content Include="AppView\node_modules\mime-types\index.js" />
+    <Content Include="AppView\node_modules\minimist\example\parse.js" />
+    <Content Include="AppView\node_modules\minimist\index.js" />
+    <Content Include="AppView\node_modules\minimist\test\all_bool.js" />
+    <Content Include="AppView\node_modules\minimist\test\bool.js" />
+    <Content Include="AppView\node_modules\minimist\test\dash.js" />
+    <Content Include="AppView\node_modules\minimist\test\default_bool.js" />
+    <Content Include="AppView\node_modules\minimist\test\dotted.js" />
+    <Content Include="AppView\node_modules\minimist\test\kv_short.js" />
+    <Content Include="AppView\node_modules\minimist\test\long.js" />
+    <Content Include="AppView\node_modules\minimist\test\num.js" />
+    <Content Include="AppView\node_modules\minimist\test\parse.js" />
+    <Content Include="AppView\node_modules\minimist\test\parse_modified.js" />
+    <Content Include="AppView\node_modules\minimist\test\short.js" />
+    <Content Include="AppView\node_modules\minimist\test\stop_early.js" />
+    <Content Include="AppView\node_modules\minimist\test\unknown.js" />
+    <Content Include="AppView\node_modules\minimist\test\whitespace.js" />
+    <Content Include="AppView\node_modules\mkdirp\bin\cmd.js" />
+    <Content Include="AppView\node_modules\mkdirp\bin\usage.txt" />
+    <Content Include="AppView\node_modules\mkdirp\examples\pow.js" />
+    <Content Include="AppView\node_modules\mkdirp\index.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\example\parse.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\index.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\dash.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\default_bool.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\dotted.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\long.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\parse.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\parse_modified.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\short.js" />
+    <Content Include="AppView\node_modules\mkdirp\node_modules\minimist\test\whitespace.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\chmod.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\clobber.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\mkdirp.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\opts_fs.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\opts_fs_sync.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\perm.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\perm_sync.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\race.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\rel.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\return.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\return_sync.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\root.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\sync.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\umask.js" />
+    <Content Include="AppView\node_modules\mkdirp\test\umask_sync.js" />
+    <Content Include="AppView\node_modules\ms\index.js" />
+    <Content Include="AppView\node_modules\normalize-package-data\lib\extract_description.js" />
+    <Content Include="AppView\node_modules\normalize-package-data\lib\fixer.js" />
+    <Content Include="AppView\node_modules\normalize-package-data\lib\make_warning.js" />
+    <Content Include="AppView\node_modules\normalize-package-data\lib\normalize.js" />
+    <Content Include="AppView\node_modules\normalize-package-data\lib\safe_format.js" />
+    <Content Include="AppView\node_modules\nugget\bin.js" />
+    <Content Include="AppView\node_modules\nugget\index.js" />
+    <Content Include="AppView\node_modules\nugget\multiple.png" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\karma.conf.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\node.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\src\browser.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\src\debug.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\src\index.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\src\inspector-log.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\debug\src\node.js" />
+    <Content Include="AppView\node_modules\nugget\node_modules\ms\index.js" />
+    <Content Include="AppView\node_modules\nugget\test\cli.js" />
+    <Content Include="AppView\node_modules\nugget\test\resume.html" />
+    <Content Include="AppView\node_modules\nugget\test\resume.js" />
+    <Content Include="AppView\node_modules\nugget\test\test.js" />
+    <Content Include="AppView\node_modules\nugget\usage.txt" />
+    <Content Include="AppView\node_modules\number-is-nan\index.js" />
+    <Content Include="AppView\node_modules\oauth-sign\index.js" />
+    <Content Include="AppView\node_modules\object-assign\index.js" />
+    <Content Include="AppView\node_modules\object-keys\foreach.js" />
+    <Content Include="AppView\node_modules\object-keys\index.js" />
+    <Content Include="AppView\node_modules\object-keys\isArguments.js" />
+    <Content Include="AppView\node_modules\object-keys\shim.js" />
+    <Content Include="AppView\node_modules\object-keys\test\foreach.js" />
+    <Content Include="AppView\node_modules\object-keys\test\index.js" />
+    <Content Include="AppView\node_modules\object-keys\test\isArguments.js" />
+    <Content Include="AppView\node_modules\object-keys\test\shim.js" />
+    <Content Include="AppView\node_modules\parse-json\index.js" />
+    <Content Include="AppView\node_modules\parse-json\vendor\parse.js" />
+    <Content Include="AppView\node_modules\parse-json\vendor\unicode.js" />
+    <Content Include="AppView\node_modules\path-exists\index.js" />
+    <Content Include="AppView\node_modules\path-type\index.js" />
+    <Content Include="AppView\node_modules\pend\index.js" />
+    <Content Include="AppView\node_modules\pend\test.js" />
+    <Content Include="AppView\node_modules\performance-now\lib\performance-now.js" />
+    <Content Include="AppView\node_modules\performance-now\license.txt" />
+    <Content Include="AppView\node_modules\pify\index.js" />
+    <Content Include="AppView\node_modules\pinkie-promise\index.js" />
+    <Content Include="AppView\node_modules\pinkie\index.js" />
+    <Content Include="AppView\node_modules\pretty-bytes\cli.js" />
+    <Content Include="AppView\node_modules\pretty-bytes\pretty-bytes.js" />
+    <Content Include="AppView\node_modules\process-nextick-args\index.js" />
+    <Content Include="AppView\node_modules\progress-stream\index.js" />
+    <Content Include="AppView\node_modules\progress-stream\test\http.js" />
+    <Content Include="AppView\node_modules\progress-stream\test\request.js" />
+    <Content Include="AppView\node_modules\psl\dist\psl.js" />
+    <Content Include="AppView\node_modules\psl\dist\psl.min.js" />
+    <Content Include="AppView\node_modules\psl\index.js" />
+    <Content Include="AppView\node_modules\psl\karma.conf.js" />
+    <Content Include="AppView\node_modules\punycode\LICENSE-MIT.txt" />
+    <Content Include="AppView\node_modules\punycode\punycode.js" />
+    <Content Include="AppView\node_modules\qs\dist\qs.js" />
+    <Content Include="AppView\node_modules\qs\lib\formats.js" />
+    <Content Include="AppView\node_modules\qs\lib\index.js" />
+    <Content Include="AppView\node_modules\qs\lib\parse.js" />
+    <Content Include="AppView\node_modules\qs\lib\stringify.js" />
+    <Content Include="AppView\node_modules\qs\lib\utils.js" />
+    <Content Include="AppView\node_modules\qs\test\index.js" />
+    <Content Include="AppView\node_modules\qs\test\parse.js" />
+    <Content Include="AppView\node_modules\qs\test\stringify.js" />
+    <Content Include="AppView\node_modules\qs\test\utils.js" />
+    <Content Include="AppView\node_modules\rc\browser.js" />
+    <Content Include="AppView\node_modules\rc\cli.js" />
+    <Content Include="AppView\node_modules\rc\index.js" />
+    <Content Include="AppView\node_modules\rc\lib\utils.js" />
+    <Content Include="AppView\node_modules\rc\test\ini.js" />
+    <Content Include="AppView\node_modules\rc\test\nested-env-vars.js" />
+    <Content Include="AppView\node_modules\rc\test\test.js" />
+    <Content Include="AppView\node_modules\read-pkg-up\index.js" />
+    <Content Include="AppView\node_modules\read-pkg\index.js" />
+    <Content Include="AppView\node_modules\readable-stream\duplex.js" />
+    <Content Include="AppView\node_modules\readable-stream\lib\_stream_duplex.js" />
+    <Content Include="AppView\node_modules\readable-stream\lib\_stream_passthrough.js" />
+    <Content Include="AppView\node_modules\readable-stream\lib\_stream_readable.js" />
+    <Content Include="AppView\node_modules\readable-stream\lib\_stream_transform.js" />
+    <Content Include="AppView\node_modules\readable-stream\lib\_stream_writable.js" />
+    <Content Include="AppView\node_modules\readable-stream\passthrough.js" />
+    <Content Include="AppView\node_modules\readable-stream\readable.js" />
+    <Content Include="AppView\node_modules\readable-stream\transform.js" />
+    <Content Include="AppView\node_modules\readable-stream\writable.js" />
+    <Content Include="AppView\node_modules\redent\index.js" />
+    <Content Include="AppView\node_modules\repeating\index.js" />
+    <Content Include="AppView\node_modules\request\index.js" />
+    <Content Include="AppView\node_modules\request\lib\auth.js" />
+    <Content Include="AppView\node_modules\request\lib\cookies.js" />
+    <Content Include="AppView\node_modules\request\lib\getProxyFromURI.js" />
+    <Content Include="AppView\node_modules\request\lib\har.js" />
+    <Content Include="AppView\node_modules\request\lib\hawk.js" />
+    <Content Include="AppView\node_modules\request\lib\helpers.js" />
+    <Content Include="AppView\node_modules\request\lib\multipart.js" />
+    <Content Include="AppView\node_modules\request\lib\oauth.js" />
+    <Content Include="AppView\node_modules\request\lib\querystring.js" />
+    <Content Include="AppView\node_modules\request\lib\redirect.js" />
+    <Content Include="AppView\node_modules\request\lib\tunnel.js" />
+    <Content Include="AppView\node_modules\request\request.js" />
+    <Content Include="AppView\node_modules\safe-buffer\index.js" />
+    <Content Include="AppView\node_modules\safer-buffer\dangerous.js" />
+    <Content Include="AppView\node_modules\safer-buffer\safer.js" />
+    <Content Include="AppView\node_modules\safer-buffer\tests.js" />
+    <Content Include="AppView\node_modules\semver\semver.js" />
+    <Content Include="AppView\node_modules\signal-exit\index.js" />
+    <Content Include="AppView\node_modules\signal-exit\LICENSE.txt" />
+    <Content Include="AppView\node_modules\signal-exit\signals.js" />
+    <Content Include="AppView\node_modules\single-line-log\index.js" />
+    <Content Include="AppView\node_modules\single-line-log\test.js" />
+    <Content Include="AppView\node_modules\spdx-correct\index.js" />
+    <Content Include="AppView\node_modules\spdx-expression-parse\index.js" />
+    <Content Include="AppView\node_modules\spdx-expression-parse\parse.js" />
+    <Content Include="AppView\node_modules\spdx-expression-parse\scan.js" />
+    <Content Include="AppView\node_modules\speedometer\index.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\algs.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\certificate.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\dhe.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\ed-compat.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\errors.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\fingerprint.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\auto.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\dnssec.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\openssh-cert.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\pem.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\pkcs1.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\pkcs8.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\rfc4253.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\ssh-private.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\ssh.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\x509-pem.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\formats\x509.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\identity.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\index.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\key.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\private-key.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\signature.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\ssh-buffer.js" />
+    <Content Include="AppView\node_modules\sshpk\lib\utils.js" />
+    <Content Include="AppView\node_modules\string-width\index.js" />
+    <Content Include="AppView\node_modules\string_decoder\index.js" />
+    <Content Include="AppView\node_modules\strip-ansi\index.js" />
+    <Content Include="AppView\node_modules\strip-bom\index.js" />
+    <Content Include="AppView\node_modules\strip-indent\cli.js" />
+    <Content Include="AppView\node_modules\strip-indent\index.js" />
+    <Content Include="AppView\node_modules\strip-json-comments\index.js" />
+    <Content Include="AppView\node_modules\sumchecker\build.js" />
+    <Content Include="AppView\node_modules\sumchecker\index.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\karma.conf.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\node.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\src\browser.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\src\debug.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\src\index.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\src\inspector-log.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\debug\src\node.js" />
+    <Content Include="AppView\node_modules\sumchecker\node_modules\ms\index.js" />
+    <Content Include="AppView\node_modules\throttleit\example.js" />
+    <Content Include="AppView\node_modules\throttleit\index.js" />
+    <Content Include="AppView\node_modules\through2\test.js" />
+    <Content Include="AppView\node_modules\through2\through2.js" />
+    <Content Include="AppView\node_modules\tough-cookie\lib\cookie.js" />
+    <Content Include="AppView\node_modules\tough-cookie\lib\memstore.js" />
+    <Content Include="AppView\node_modules\tough-cookie\lib\pathMatch.js" />
+    <Content Include="AppView\node_modules\tough-cookie\lib\permuteDomain.js" />
+    <Content Include="AppView\node_modules\tough-cookie\lib\pubsuffix-psl.js" />
+    <Content Include="AppView\node_modules\tough-cookie\lib\store.js" />
+    <Content Include="AppView\node_modules\trim-newlines\index.js" />
+    <Content Include="AppView\node_modules\tunnel-agent\index.js" />
+    <Content Include="AppView\node_modules\tweetnacl\nacl-fast.js" />
+    <Content Include="AppView\node_modules\tweetnacl\nacl-fast.min.js" />
+    <Content Include="AppView\node_modules\tweetnacl\nacl.js" />
+    <Content Include="AppView\node_modules\tweetnacl\nacl.min.js" />
+    <Content Include="AppView\node_modules\typedarray\example\tarray.js" />
+    <Content Include="AppView\node_modules\typedarray\index.js" />
+    <Content Include="AppView\node_modules\typedarray\test\server\undef_globals.js" />
+    <Content Include="AppView\node_modules\typedarray\test\tarray.js" />
+    <Content Include="AppView\node_modules\universalify\index.js" />
+    <Content Include="AppView\node_modules\util-deprecate\browser.js" />
+    <Content Include="AppView\node_modules\util-deprecate\node.js" />
+    <Content Include="AppView\node_modules\uuid\index.js" />
+    <Content Include="AppView\node_modules\uuid\lib\bytesToUuid.js" />
+    <Content Include="AppView\node_modules\uuid\lib\md5-browser.js" />
+    <Content Include="AppView\node_modules\uuid\lib\md5.js" />
+    <Content Include="AppView\node_modules\uuid\lib\rng-browser.js" />
+    <Content Include="AppView\node_modules\uuid\lib\rng.js" />
+    <Content Include="AppView\node_modules\uuid\lib\sha1-browser.js" />
+    <Content Include="AppView\node_modules\uuid\lib\sha1.js" />
+    <Content Include="AppView\node_modules\uuid\lib\v35.js" />
+    <Content Include="AppView\node_modules\uuid\v1.js" />
+    <Content Include="AppView\node_modules\uuid\v3.js" />
+    <Content Include="AppView\node_modules\uuid\v4.js" />
+    <Content Include="AppView\node_modules\uuid\v5.js" />
+    <Content Include="AppView\node_modules\validate-npm-package-license\index.js" />
+    <Content Include="AppView\node_modules\verror\lib\verror.js" />
+    <Content Include="AppView\node_modules\xtend\has-keys.js" />
+    <Content Include="AppView\node_modules\xtend\index.js" />
+    <Content Include="AppView\node_modules\xtend\mutable.js" />
+    <Content Include="AppView\node_modules\xtend\test.js" />
+    <Content Include="AppView\node_modules\yauzl\index.js" />
+    <Content Include="AppView\socket-helper.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JpFramework.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JpFramework_log.ldf">
+      <DependentUpon>JpFramework.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="jpO.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="AppView\node_modules\%40types\node\index.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\%40types\node\inspector.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\ajv\lib\ajv.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\electron\electron.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\fast-deep-equal\index.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\iconv-lite\lib\index.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\performance-now\src\index.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\safe-buffer\index.d.ts" />
+    <TypeScriptCompile Include="AppView\node_modules\tweetnacl\nacl.d.ts" />
+    <TypeScriptCompile Include="AppView\server.ts">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

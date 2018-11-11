@@ -1,0 +1,97 @@
+body{
+    background:white;
+}
+.no-drop{
+    -webkit-app-region: no-drag;
+}
+.drop{
+    -webkit-app-region: drag;
+}
+.josekine-1em{
+    width:50px;
+    height:50px;
+}
+.josekine-2em{
+    width:100px;
+    height:100px;
+}
+.josekine-3em{
+    width:150px;
+    height:150px;
+}	
+.josekine-4em{
+    width:200px;
+    height:200px;
+}
+/*旋转*/
+.rotate {
+    -webkit-transition: -webkit-transform 1s ease-out;
+    -webkit-border-radius: 50%;
+    background: no-repeat url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1920356983,3446195281&fm=26&gp=0.jpg) left top;
+    -webkit-background-size: 100%;
+}
+.rotate:hover {
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+}
+.float-l {
+    float: left;
+}
+.float-r {
+    float: right;
+}
+.div-frame-1em{
+    padding: 0px ;
+    margin:2px;
+}
+.div-frame-2em{
+    padding: 0px ;
+    margin:5px;
+}
+.div-frame-3em{
+    padding: 0px ;
+    margin:10px;
+}
+.div-frame-4em{
+    padding: 0px ;
+    margin:15px;
+}
+.iframe{
+    
+}
+
+/**重写滚动条样式*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 16px;
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 16px;
+    background-color: #f9f9f9;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #bbbbbb;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #b9b9b9;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #7283e454;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #ffffff;
+}

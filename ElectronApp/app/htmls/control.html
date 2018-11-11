@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>控制台</title>
+    <link rel="stylesheet" type="text/css" href="../css/josekine.css">
+    <style>
+        .box-editor {
+            display: none;
+        }
+
+        .box-text {
+            display: block;
+        }
+
+        .menu {
+            height: 30px;
+            background: #f5f5f5;
+            padding: 1px 22px;
+            border: 1px solid #ececec;
+            padding-top: 8px;
+            box-shadow: 3px 1px #e2dcdc;
+        }
+
+        .menuBtn {
+            color: #5a5a5a;
+        }
+
+        .menuBtn:hover {
+            color: #4a4949;
+            text-shadow: 1px 1px #e2e2e2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div id="editorPro" value="1" class="menuBtn float-l">
+            编辑
+        </div>
+    </div>
+    <div id="programeList">
+        <div onclick="top.openHTML('{path}','{title}');closeThis()" class="programe float-l rotate josekine-2em div-frame-4em" name="{name}" title="{title}" style="overflow: hidden;background: no-repeat url({img_path}) left top;-webkit-background-size: 100%;border: 1px solid #ccc">
+            <!--<div style="background: #00000082;margin-bottom: 0px;color: white;width: 100%;text-align: center;padding: 5px 0px;margin-top: 60px;">{title}</div>-->
+            <div class="box-editor" style="background: #e2e2e287;width: 100%;height: 100%;padding-top: 35px;text-align: center;">编辑</div>
+            <div class="box-text" style="background: #00000082;margin-bottom: 0px;color: white;width: 100%;text-align: center;padding: 5px 0px;margin-top: 60px;">{title}</div>
+        </div>
+    </div>
+    <!-- <webview  class="frame"  style="width:100vw"  id="frame" src="../../extends/suop/index.html" plugins> </webview > -->
+
+    <script src="../../jquery-2.2.0.min.js"></script>
+    <!--<script>if (typeof module === 'object') { top.$ = window.jQuery = window.$ = module.exports; };</script>-->
+    <script src="../lib/layuis/layui.all.js"></script>
+    <script src="../lib/jquery.extends/jquery.bottomtip.js"></script>
+    <script src="../lib/jquery.extends/jquery.layer.load.js"></script>
+    <script src="../../function.js"></script>
+    <script src="../lib/jquery.extends/jquery.temp.js"></script>
+    <script src="../../socket-helper.js"></script>
+    <script src="../../hander.js"></script>
+    <!--<script src="../../electron-tools.js"></script>-->
+    <script>
+        //初始化控制程序
+        top.initControl = function () {
+            if (!top.initResult) {
+                Hander("Programe!GetList", function (result) {
+                    res = JSON.parse(result.data).ds;
+                    $.bandTempJson(res, "#programeList");
+                    var addDiv = '<div onclick="addPrograme()" class="float-l rotate josekine-2em div-frame-4em" style="overflow: hidden;background: no-repeat url(../lib/images/add.png) left top;-webkit-background-size: 100%;"></div>';
+                    document.getElementById("programeList").innerHTML += addDiv;
+                    top.initResult = res;
+                });
+                return;
+            }
+            $.bandTempJson(top.initResult, "#programeList");
+            var addDiv = '<div onclick="addPrograme()" class="float-l rotate josekine-2em div-frame-4em" style="overflow: hidden;background: no-repeat url(../lib/images/add.png) left top;-webkit-background-size: 100%;"></div>';
+            document.getElementById("programeList").innerHTML += addDiv;
+            $.setRandColorByClass("box-editor", "color", 0, 150);
+            $.setRandColorByClass("box-text", "color", 100, 255);
+        }
+        $(function () {
+            top.initControl();
+        });
+
+        ///关闭当前弹出窗口
+        function closeThis() {
+            if (top.controlIndex != null) {
+                layer.close(top.controlIndex);
+            }
+            top.controlIndex = null;
+        }
+        //添加程序
+        function addPrograme() {
+            $.openForm({ area: ["510px", "330px"], title: "添加程式", content: 'control-add.html' });
+        }
+
+
+        //打开关闭编辑
+        $("#editorPro").bind({
+            click: function () {
+                $(".box-editor").slideToggle();
+                $(".box-text").slideToggle();
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JpFramework", "E:\项目文件\VS文件\VS项目\学习项目\electrons\NodeJsWInform\ElectronWinform\WinformServers\JpFramework.csproj", "{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ElectronApp", "ElectronApp\ElectronApp.njsproj", "{9519E8EF-3976-49BF-844B-29A3378EB60A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Debug|x86.Build.0 = Debug|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Release|x86.ActiveCfg = Release|Any CPU
+		{71A282B2-6DB5-4AD2-A0D3-FBDABD88FB69}.Release|x86.Build.0 = Release|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Debug|x86.Build.0 = Debug|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9519E8EF-3976-49BF-844B-29A3378EB60A}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C592649F-31AB-481F-B6F1-17D261635948}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>ElectronApp</Name>
+    <RootNamespace>ElectronApp</RootNamespace>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <NodeExePath>./node_modules/electron/dist/electron.exe</NodeExePath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>032a9512-a82f-4303-97d6-b3257a408fb2</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>main.js</StartupFile>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <EnableTypeScript>true</EnableTypeScript>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <TypeScriptCompile Include="server.ts" />
+    <Content Include="app\css\admin.css" />
+    <Content Include="app\css\josekine.css" />
+    <Content Include="app\htmls\control-add.html" />
+    <Content Include="app\htmls\control.html" />
+    <Content Include="app\htmls\login.html" />
+    <Content Include="app\images\icon\icon.ico" />
+    <Content Include="app\index.html" />
+    <Content Include="app\lib\iconfont1.0.8\iconfont.css" />
+    <Content Include="app\lib\iconfont1.0.8\iconfont.eot" />
+    <Content Include="app\lib\iconfont1.0.8\iconfont.min.css" />
+    <Content Include="app\lib\iconfont1.0.8\iconfont.svg" />
+    <Content Include="app\lib\iconfont1.0.8\iconfont.ttf" />
+    <Content Include="app\lib\iconfont1.0.8\iconfont.woff" />
+    <Content Include="app\lib\images\add.png" />
+    <Content Include="app\lib\images\suop.jpg" />
+    <Content Include="app\lib\layuis\css\layui.css" />
+    <Content Include="app\lib\layuis\css\layui.mobile.css" />
+    <Content Include="app\lib\layuis\css\modules\code.css" />
+    <Content Include="app\lib\layuis\css\modules\laydate\default\laydate.css" />
+    <Content Include="app\lib\layuis\css\modules\layer\default\icon-ext.png" />
+    <Content Include="app\lib\layuis\css\modules\layer\default\icon.png" />
+    <Content Include="app\lib\layuis\css\modules\layer\default\layer.css" />
+    <Content Include="app\lib\layuis\css\modules\layer\default\loading-0.gif" />
+    <Content Include="app\lib\layuis\css\modules\layer\default\loading-1.gif" />
+    <Content Include="app\lib\layuis\css\modules\layer\default\loading-2.gif" />
+    <Content Include="app\lib\layuis\font\iconfont.eot" />
+    <Content Include="app\lib\layuis\font\iconfont.svg" />
+    <Content Include="app\lib\layuis\font\iconfont.ttf" />
+    <Content Include="app\lib\layuis\font\iconfont.woff" />
+    <Content Include="app\lib\layuis\images\face\0.gif" />
+    <Content Include="app\lib\layuis\images\face\1.gif" />
+    <Content Include="app\lib\layuis\images\face\10.gif" />
+    <Content Include="app\lib\layuis\images\face\11.gif" />
+    <Content Include="app\lib\layuis\images\face\12.gif" />
+    <Content Include="app\lib\layuis\images\face\13.gif" />
+    <Content Include="app\lib\layuis\images\face\14.gif" />
+    <Content Include="app\lib\layuis\images\face\15.gif" />
+    <Content Include="app\lib\layuis\images\face\16.gif" />
+    <Content Include="app\lib\layuis\images\face\17.gif" />
+    <Content Include="app\lib\layuis\images\face\18.gif" />
+    <Content Include="app\lib\layuis\images\face\19.gif" />
+    <Content Include="app\lib\layuis\images\face\2.gif" />
+    <Content Include="app\lib\layuis\images\face\20.gif" />
+    <Content Include="app\lib\layuis\images\face\21.gif" />
+    <Content Include="app\lib\layuis\images\face\22.gif" />
+    <Content Include="app\lib\layuis\images\face\23.gif" />
+    <Content Include="app\lib\layuis\images\face\24.gif" />
+    <Content Include="app\lib\layuis\images\face\25.gif" />
+    <Content Include="app\lib\layuis\images\face\26.gif" />
+    <Content Include="app\lib\layuis\images\face\27.gif" />
+    <Content Include="app\lib\layuis\images\face\28.gif" />
+    <Content Include="app\lib\layuis\images\face\29.gif" />
+    <Content Include="app\lib\layuis\images\face\3.gif" />
+    <Content Include="app\lib\layuis\images\face\30.gif" />
+    <Content Include="app\lib\layuis\images\face\31.gif" />
+    <Content Include="app\lib\layuis\images\face\32.gif" />
+    <Content Include="app\lib\layuis\images\face\33.gif" />
+    <Content Include="app\lib\layuis\images\face\34.gif" />
+    <Content Include="app\lib\layuis\images\face\35.gif" />
+    <Content Include="app\lib\layuis\images\face\36.gif" />
+    <Content Include="app\lib\layuis\images\face\37.gif" />
+    <Content Include="app\lib\layuis\images\face\38.gif" />
+    <Content Include="app\lib\layuis\images\face\39.gif" />
+    <Content Include="app\lib\layuis\images\face\4.gif" />
+    <Content Include="app\lib\layuis\images\face\40.gif" />
+    <Content Include="app\lib\layuis\images\face\41.gif" />
+    <Content Include="app\lib\layuis\images\face\42.gif" />
+    <Content Include="app\lib\layuis\images\face\43.gif" />
+    <Content Include="app\lib\layuis\images\face\44.gif" />
+    <Content Include="app\lib\layuis\images\face\45.gif" />
+    <Content Include="app\lib\layuis\images\face\46.gif" />
+    <Content Include="app\lib\layuis\images\face\47.gif" />
+    <Content Include="app\lib\layuis\images\face\48.gif" />
+    <Content Include="app\lib\layuis\images\face\49.gif" />
+    <Content Include="app\lib\layuis\images\face\5.gif" />
+    <Content Include="app\lib\layuis\images\face\50.gif" />
+    <Content Include="app\lib\layuis\images\face\51.gif" />
+    <Content Include="app\lib\layuis\images\face\52.gif" />
+    <Content Include="app\lib\layuis\images\face\53.gif" />
+    <Content Include="app\lib\layuis\images\face\54.gif" />
+    <Content Include="app\lib\layuis\images\face\55.gif" />
+    <Content Include="app\lib\layuis\images\face\56.gif" />
+    <Content Include="app\lib\layuis\images\face\57.gif" />
+    <Content Include="app\lib\layuis\images\face\58.gif" />
+    <Content Include="app\lib\layuis\images\face\59.gif" />
+    <Content Include="app\lib\layuis\images\face\6.gif" />
+    <Content Include="app\lib\layuis\images\face\60.gif" />
+    <Content Include="app\lib\layuis\images\face\61.gif" />
+    <Content Include="app\lib\layuis\images\face\62.gif" />
+    <Content Include="app\lib\layuis\images\face\63.gif" />
+    <Content Include="app\lib\layuis\images\face\64.gif" />
+    <Content Include="app\lib\layuis\images\face\65.gif" />
+    <Content Include="app\lib\layuis\images\face\66.gif" />
+    <Content Include="app\lib\layuis\images\face\67.gif" />
+    <Content Include="app\lib\layuis\images\face\68.gif" />
+    <Content Include="app\lib\layuis\images\face\69.gif" />
+    <Content Include="app\lib\layuis\images\face\7.gif" />
+    <Content Include="app\lib\layuis\images\face\70.gif" />
+    <Content Include="app\lib\layuis\images\face\71.gif" />
+    <Content Include="app\lib\layuis\images\face\8.gif" />
+    <Content Include="app\lib\layuis\images\face\9.gif" />
+    <Content Include="app\lib\pepflashplayer.dll" />
+    <Content Include="app\lib\Sqlite3db\JpFramework.db" />
+    <Content Include="bin\Microsoft.NodejsTools.WebRole.dll" />
+    <Content Include="extends\suop\images\icon\icon.ico" />
+    <Content Include="extends\suop\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\css\" />
+    <Folder Include="app\htmls\" />
+    <Folder Include="app\images\" />
+    <Folder Include="app\images\icon\" />
+    <Folder Include="app\lib\" />
+    <Folder Include="app\lib\iconfont1.0.8\" />
+    <Folder Include="app\lib\images\" />
+    <Folder Include="app\lib\jquery.extends\" />
+    <Folder Include="app\lib\layuis\" />
+    <Folder Include="app\lib\layuis\css\" />
+    <Folder Include="app\lib\layuis\css\modules\" />
+    <Folder Include="app\lib\layuis\css\modules\laydate\" />
+    <Folder Include="app\lib\layuis\css\modules\laydate\default\" />
+    <Folder Include="app\lib\layuis\css\modules\layer\" />
+    <Folder Include="app\lib\layuis\css\modules\layer\default\" />
+    <Folder Include="app\lib\layuis\font\" />
+    <Folder Include="app\lib\layuis\images\" />
+    <Folder Include="app\lib\layuis\images\face\" />
+    <Folder Include="app\lib\layuis\lay\" />
+    <Folder Include="app\lib\layuis\lay\modules\" />
+    <Folder Include="app\lib\Sqlite3db\" />
+    <Folder Include="bin\" />
+    <Folder Include="bin\Servers\" />
+    <Folder Include="extends\" />
+    <Folder Include="extends\suop\" />
+    <Folder Include="extends\suop\images\" />
+    <Folder Include="extends\suop\images\icon\" />
+    <Folder Include="extends\suop\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app\lib\jquery.extends\jquery.bottomtip.js" />
+    <Compile Include="app\lib\jquery.extends\jquery.checkInput.js" />
+    <Compile Include="app\lib\jquery.extends\jquery.layer.load.js" />
+    <Compile Include="app\lib\jquery.extends\jquery.temp.js" />
+    <Compile Include="app\lib\layuis\layui.all.js" />
+    <Compile Include="app\lib\layuis\layui.js" />
+    <Compile Include="app\lib\layuis\lay\modules\carousel.js" />
+    <Compile Include="app\lib\layuis\lay\modules\code.js" />
+    <Compile Include="app\lib\layuis\lay\modules\colorpicker.js" />
+    <Compile Include="app\lib\layuis\lay\modules\element.js" />
+    <Compile Include="app\lib\layuis\lay\modules\flow.js" />
+    <Compile Include="app\lib\layuis\lay\modules\form.js" />
+    <Compile Include="app\lib\layuis\lay\modules\jquery.js" />
+    <Compile Include="app\lib\layuis\lay\modules\laydate.js" />
+    <Compile Include="app\lib\layuis\lay\modules\layedit.js" />
+    <Compile Include="app\lib\layuis\lay\modules\layer.js" />
+    <Compile Include="app\lib\layuis\lay\modules\laypage.js" />
+    <Compile Include="app\lib\layuis\lay\modules\laytpl.js" />
+    <Compile Include="app\lib\layuis\lay\modules\mobile.js" />
+    <Compile Include="app\lib\layuis\lay\modules\rate.js" />
+    <Compile Include="app\lib\layuis\lay\modules\slider.js" />
+    <Compile Include="app\lib\layuis\lay\modules\table.js" />
+    <Compile Include="app\lib\layuis\lay\modules\tree.js" />
+    <Compile Include="app\lib\layuis\lay\modules\upload.js" />
+    <Compile Include="app\lib\layuis\lay\modules\util.js" />
+    <Compile Include="extends\suop\js\index.js" />
+    <Compile Include="function-main.js" />
+    <Compile Include="function.js" />
+    <Compile Include="hander.js" />
+    <Compile Include="jquery-2.2.0.min.js" />
+    <Compile Include="appconf.js" />
+    <Compile Include="main.js" />
+    <Compile Include="socket-helper.js" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

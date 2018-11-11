@@ -1,0 +1,15 @@
+{
+  "name": "jpframework",
+  "version": "1.0.0",
+  "description": "C#联合electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jpw!1427953302@qq.com/1427953302",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^3.0.8",
+    "iconv-lite": "^0.4.24"
+  }
+}

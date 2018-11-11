@@ -1,0 +1,496 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width =device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../app/lib/layuis/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="css/josekine.css">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+
+    <style>
+        .topBar {
+            left: 0px;
+            top: 40px;
+        }
+
+        .bodyTop {
+            padding-top: 50px;
+        }
+
+        .drag {
+            -webkit-app-region: drag;
+        }
+
+        .no-drag {
+            -webkit-app-region: no-drag;
+        }
+
+        .layadmin-iframe {
+            width: 100%;
+            top: 40px;
+            position: fixed;
+            height: calc(100% - 50px);
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .flush {
+            right: 5px;
+            top: 210px;
+            position: fixed;
+            padding: 15px;
+            border: 1px solid #e4e4e4;
+            z-index: 99999999999999;
+            border-radius: 50%;
+            background: #03a9f47a;
+            color: white;
+        }
+
+        .web-view {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .jose-layui-tab-title {
+            position: relative;
+            left: 0;
+            height: 40px;
+            white-space: nowrap;
+            font-size: 0;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            transition: all .2s;
+            -webkit-transition: all .2s;
+            background: white;
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+            .jose-layui-tab-title li {
+                height: 20px;
+                font-size: 15px;
+                padding: 10px;
+                border-right: 1px solid #ccc;
+                width: 40%;
+                float: left;
+            }
+
+        .jose-layui-this {
+            background: #f6f6f6;
+        }
+
+        .jose-layui-show {
+            display: block !important;
+        }
+
+        .jose-layui-tab-content {
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 180px);
+        }
+    </style>
+
+
+</head>
+
+
+<body style="width: 100%;">
+    <div class="layui-layer-iframe " type="iframe" times="2" showtime="0" contype="string" area="300,193,101.75,200" style=" width: 100vw; height: 100vh;">
+        <div class="layui-layer-title drag" style="cursor: move; ">首页</div>
+        <div id="" class="layui-layer-content no-drag" style="height: calc(100% - 50px);">
+            <div class="rotate flush  no-drag;cursor: pointer;" onclick="readFrame()"><i class="layui-icon layui-icon-refresh-3"></i></div>
+            <div class="layadmin-pagetabs topBar no-drag" id="LAY_app_tabs">
+                <div class="layui-icon layadmin-tabs-control layui-icon-prev" id="leftPage"></div>
+                <div class="layui-icon layadmin-tabs-control layui-icon-next" id="rightPage"></div>
+                <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                    <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                        <li class="layui-nav-item" lay-unselect="">
+                            <a href="javascript:;"><span class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child layui-anim-fadein">
+                                <dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
+                                <dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+                                <dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
+                            </dl>
+                        </li>
+                        <span class="layui-nav-bar"></span>
+                    </ul>
+                </div>
+                <div class="layui-tab" lay-unauto="" lay-allowclose="true" lay-filter="layadmin-layout-tabs">
+                    <ul class="layui-tab-title" id="LAY_app_tabsheader">
+                        <li onclick="top.selectTab(this,'control')" style="cursor: pointer;" id="control" lay-id="../app/htmls/control.html" lay-attr="../app/htmls/control.html"
+                            class="layui-this">
+                            <i class="layui-icon layui-icon-home"></i>
+                            <i style="cursor: pointer;" class="layui-icon layui-unselect layui-tab-close" onclick="top.closeTab('control')">ဆ</i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-body  no-drag" id="LAY_app_body" style="top: 40px;left: 0px;">
+                <div class="layadmin-tabsbody-item layui-show" id="iframe_control">
+                    <iframe src="../app/htmls/control.html" frameborder="0" class="layadmin-iframe  bodyTop" plugins></iframe>
+                </div>
+            </div>
+        </div>
+
+        <span class="layui-layer-setwin  no-drag" style="z-index: 99999;">
+            <a class="layui-layer-min" onclick="changMinForm();"><cite></cite></a>
+            <a class="layui-layer-ico layui-layer-max" onclick="changSizeForm();"></a>  <!--layui-layer-maxmin-->
+            <a class="layui-layer-ico layui-layer-close layui-layer-close1" onclick="quiteForm();"></a>
+        </span>
+    </div>
+    <div id="fixdBox" style="width: 100vw;;height:100vh;position:fixed;right:0px;top: 80px;z-index: 9999;">
+        <div style="width: 50px;height:100%;position:absolute;float: right;">
+        </div>
+        <div id="rightWidth" style="width: auto;height:100%;position:absolute;right: 0px;">
+            <div style="width: 45px;height: 100%;float: left;">
+                <div id="openBox" style="background: white;width: 27px;cursor: pointer;border-radius: 50%;height: 30px; user-select: none;top: calc(50% - 30px);position: absolute;padding: 10px;border: 1px solid #e2dfdf;">
+                    <i class="layui-icon layui-icon-return" style="font-size: 2em;"></i>
+                </div>
+                <div id="closeBox" style="background: white;width: 27px;cursor: pointer;border-radius: 50%;height: 30px; user-select: none;top: calc(50% - 30px);transform: scaleX(-1);position: absolute;padding: 10px;border: 1px solid #e2dfdf;">
+                    <i class="layui-icon layui-icon-return" style="font-size: 2em;"></i>
+                </div>
+            </div>
+            <div id="hisBox" style="width: 250px;height: 100%;float: right;border-left: 1px solid #ccc;background: #f8f8f8;">
+                <div class="layui-form" style="height: 40px;background: #efefef">
+                    <div style="background: #f8f8f8;width: 100%;height: 17px;padding: 10px;border-top: 1px solid #ccc;">
+                        <div style="float: left;color: #101010;">链接盒子</div>
+                        <div name="isIntercept" title="是否拦截页面内未知请求" style="float: left;position: absolute;color: #101010;right:20px;top: 0px;">
+                            <input type="checkbox" lay-skin="switch" lay-text="拦截|不拦截" checked>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: calc(100% - 80px);padding-top: 0px;overflow: auto; overflow-x: hidden;">
+
+                    <div class="layui-tab" style="margin-top:0px">
+                        <ul class="jose-layui-tab-title">
+                            <li id="intercept" class="jose-layui-this">拦截请求</li>
+                            <li id="history">历史记录</li>
+                        </ul>
+                        <div class="jose-layui-tab-content ">
+                            <div class="layui-tab-item jose-layui-show" id="boxCentent">
+                                <div class="box-content" style="display:none; border: 10px solid #fff;background: #efefef;">
+                                    <div style=" padding: 8px; width: 100%; ">
+                                        <div style="float:left;width: 180px;">{time}</div>
+                                        <div style="float:left;right: 30px;top: 12px;cursor: pointer;"><i onclick="closeBoxMsg(this)" class="layui-icon layui-icon-close"></i></div>
+                                    </div>
+                                    <div style="border: 1px solid #eaeaea;margin-top: 20px;zoom: 80%;background-color: white;">
+                                        <div style=" padding: 12px;">
+                                            <a onclick="top.openHTML('{src}', '正在加载...');closeBox()" style="color: #3381e6;text-decoration: underline;word-wrap: break-word;cursor: pointer;">{title}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="conHistory" class="layui-tab-item">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>if (typeof module === 'object') { top.$ = window.jQuery = window.$ = module.exports; };</script>
+    <script src="../app/lib/layuis/layui.all.js"></script>
+    <script src="../app/lib/jquery.extends/jquery.temp.js"></script>
+    <script src="../app/lib/jquery.extends/jquery.bottomtip.js"></script>
+    <script src="../app/lib/jquery.extends/jquery.checkInput.js"></script>
+    <script src="../app/lib/jquery.extends/jquery.layer.load.js"></script>
+    <script src="../function.js"></script>
+    <script src="../socket-helper.js"></script>
+    <script src="../hander.js"></script>
+    <script>
+        //$(function () {
+        //    //默认初始化加载控制台
+        //    top.controlIndex = $.openForm({ content: "htmls/control.html", area: [(window.screen.width - 300) + 'px', (window.screen.height - 300) + 'px'] },
+        //    );
+        //});
+        //打开页面或功能
+        top.openHTML = function (src, name) {
+
+            if ($('[lay-id="' + src + '"]').length > 0 && $('[src = "' + src + '"]').length > 0) {
+                $('[lay-id="' + src + '"]').click();
+                return;
+            }
+            $(".layui-tab-title li").removeClass("layui-this");
+            $(".layadmin-tabsbody-item").removeClass("layui-show");
+            var uuid = $.getUUid()
+            var tab = '<li onclick="top.selectTab(this,\'' + uuid + '\')" id="' + uuid + '" lay-id="' + src + '" lay-attr="' + src + '" class="layui-this"><span title="' + name + '">' + name + '</span><i class="layui-icon layui-unselect layui-tab-close" onclick="top.closeTab(\'' + uuid + '\')">ဆ</i></li>';
+            $(".layui-tab-title").append(tab);
+
+            var html = '<div class="layadmin-tabsbody-item layui-show" id="iframe_' + uuid + '"><webview src = "' + src + '" frameborder = "0" class="web-view no-drag" plugins ></webview></div > ';
+            html = src.indexOf("http") == 0 ? html : html.replace("<webview", "<iframe").replace("webview>", "iframe>");
+            $(".layui-body").append(html);
+
+            if (top.controlIndex != null) {
+                layer.close(top.controlIndex);
+            }
+            top.controlIndex = null;
+
+            //监听webview内的点击链接
+            $("#iframe_" + uuid + " webview").on('new-window', (e) => {
+                var url = e.url || e.originalEvent.url;
+                if (url.indexOf('http:') >= 0 || url.indexOf('https:') >= 0) {
+                    if ($('[name="isIntercept"] .layui-form-onswitch').length > 0) {
+                        var data = [{ time: $.getDayTime(), src: url, title: url }];
+                        $.bandTempJsonAppendBefore(data, "#boxCentent");
+                        $("#openBox").click();
+                        $("#fixdBox").css({ width: "300px", "background": "" });
+                        $(".box-content").show();
+                        $("#boxCentent>div:last").hide();
+                    } else {
+                        top.openHTML(url, "正在加载...");
+                    }
+                    //将页面的的请求放置到  链接盒子中
+                    //shell.openExternal(url)
+                    //callback(url);
+                    //window.open(url)
+                }
+            })
+
+            $("#iframe_" + uuid + " webview").on('dom-ready', () => {
+                var interVal = setInterval(function () {
+                    if (!$("#iframe_" + uuid + " webview")[0].isLoading()) {
+                        var title = $("#iframe_" + uuid + " webview")[0].getTitle();
+                        $("#" + uuid + ">span").text(title);
+                        $("#" + uuid + ">span").attr("title", title);
+                        clearInterval(interVal);
+                    }
+                }, 500);
+            })
+
+            isPageClick = false;
+        }
+
+        //tab选择事件
+        top.selectTab = function (doc, uuid) {
+            if ($("#" + uuid).length <= 0 || $("#" + uuid) == undefined) {
+                return;
+            }
+            if ($('#iframe_' + uuid).find(".layui-show").length > 0) {
+                return;
+            }
+            $(".layui-tab-title li").removeClass("layui-this");
+            $(".layadmin-tabsbody-item").removeClass("layui-show");
+            // if($('[lay-id="'+src+'"].layui-this').length<0){
+
+            $('#' + uuid).addClass("layui-this");
+            $('#iframe_' + uuid).addClass("layui-show");
+            // }
+        }
+
+        //点击打开 关闭 标签管理菜单
+        $(".layui-nav-item").on("click", function () {
+            if ($(".layui-nav-child").css("display") == "none") {
+                $(".layui-nav-child").slideDown();
+            } else {
+                $(".layui-nav-child").slideUp();
+            }
+        });
+        //标签管理功能
+        $(".layui-nav-item").find("dd").on("click", function () {
+            var id = $(this).attr("layadmin-event");
+            var fn = {
+                "closeThisTabs": function () {
+                    $(".layui-this i").click();
+                },
+                "closeOtherTabs": function () {
+                    $(".layui-tab-title li:not(.layui-this) i").click();
+                },
+                "closeAllTabs": function () {
+                    $(".layui-tab-title li i").click();
+                }
+            };
+            fn[id]();
+        });
+
+        //标签关闭功能
+        top.closeTab = function (uuid) {
+            if (uuid == "control") {
+                return;
+            }
+            uuid = uuid.replace("iframe_", "");
+            $("#" + uuid).remove();
+            $("#iframe_" + uuid).remove();
+
+            if ($(".layui-show").length > 0) {
+                var id = $(".layui-show").attr("id").replace("iframe_", "");
+                $("#" + id).click();
+            }
+            $(".layui-tab-title li:last").click();
+            var page = getPage();
+            $(".layui-tab-title").css("left", "0px");
+        }
+        //页面重载
+        function readFrame() {
+            if ($(".layui-show").find("iframe").length > 0) {
+                $(".layui-show iframe").attr('src', $(".layui-show iframe").attr('src'));
+                return;
+            }
+            $(".layui-show webview").attr('src', $(".layui-show webview").attr('src'));
+        }
+
+        //最小化
+        function changMinForm() {
+            var currwin = require("electron").remote.getCurrentWindow();
+            currwin.minimize();
+        }
+
+        //最大化，窗口化
+        function changSizeForm() {
+            var currwin = require("electron").remote.getCurrentWindow();
+            if ($(".layui-layer-max").attr("class").indexOf("layui-layer-maxmin") >= 0) {
+                currwin.unmaximize();
+                var w = screen.width - 200, h = screen.height - 200;
+                currwin.setSize(w, h);
+                currwin.setPosition(100, 100);
+                $(".layui-layer-max").removeClass("layui-layer-maxmin");
+            } else {
+                currwin.maximize();
+                $(".layui-layer-max").addClass("layui-layer-maxmin");
+            }
+        }
+
+        //退出
+        function quiteForm() {
+            //询问框
+            layer.confirm('确定关闭吗？', {
+                btn: ['确定', '取消'],//按钮
+                yes: function (index, lay) {
+                    layer.close(index);
+                    var ipc = require("electron").ipcRenderer;
+                    ipc.send("quit");
+                    Hander("quit", function (result) { });
+                }, btn1: function (index) {
+                    layer.close(index);
+                }
+            });
+
+        }
+
+        //监听浏览器改变事件
+        window.onresize = function () {
+            var w = $(window).width(), h = $(window).height();
+            $("body").css({ "width": w + "px", "height": h + "px" });
+            $(".layui-layer-iframe").css({ "width": w + "px", "height": h + "px" });
+        }
+
+
+        //--------盒子相关--------------
+        $("#openBox").on("click", function () {
+            $("#fixdBox").css({ width: "300px" });
+            $("#rightWidth").css("right", "0px");
+            $("#hisBox").fadeIn();
+            $("#openBox").hide();
+            $("#closeBox").fadeIn();
+        });
+        $("#closeBox").on("click", function () {
+            $("#fixdBox").css({ width: "auto" });
+            $("#rightWidth").css("right", "25px");
+            $("#hisBox").fadeOut();
+            $("#closeBox").hide();
+            $("#openBox").fadeIn();
+        });
+        $("#closeBox").click();
+        function closeBox() {
+            $("#closeBox").click();
+        }
+
+
+        function closeBoxMsg(doc) {
+            $(doc).parent().parent().parent().remove();
+        }
+        //计算tab总长度，并设置相关的长度
+
+        //点击移动Tab标签
+        var getOrSetPostion = function (selector, cssStylePro, value) {
+            if (value) {
+                $(selector).css(cssStylePro, value);
+            }
+            if (cssStylePro == "width") {
+                return $(selector).width() || parseInt($(selector).css(cssStylePro).replace("px", ""));
+            }
+            if (cssStylePro == "height") {
+                return $(selector).height() || parseInt($(selector).css(cssStylePro).replace("px", ""));
+            }
+            return parseInt($(selector).css(cssStylePro).replace("px", ""));
+        }
+        var isPageClick = false;
+        var page = [];
+        var nowPage = 0;
+
+        var getPage = function () {
+            var titleWidth = getOrSetPostion(".layui-tab-title", "width");
+            if (!isPageClick) { page = []; }
+            if (!isPageClick || page.length <= 0) {
+                var titleLi = $(".layui-tab-title li");
+                var sum = 0;
+                for (var i = 0; i < titleLi.length; i++) {
+                    var liWidth = getOrSetPostion(titleLi[i], "width");
+                    if (liWidth + sum >= titleWidth || i >= titleLi.length - 1) {
+                        page[page.length] = sum;
+                        sum = 0;
+                    } else {
+                        sum += liWidth;
+                        console.log(sum);
+                    }
+                }
+                console.log(page);
+            }
+            return page;
+        }
+        $("#leftPage").on("click", function () {
+            var titleLeft = getOrSetPostion(".layui-tab-title", "left");
+            page = getPage();
+            if (nowPage + 1 > page.length) {
+                return;
+            }
+            nowPage = nowPage + 1;
+            getOrSetPostion(".layui-tab-title", "left", titleLeft - page[nowPage - 1] + 180 + "px");
+        });
+
+        $("#rightPage").on("click", function () {
+            var titleLeft = getOrSetPostion(".layui-tab-title", "left") + 40;
+            page = getPage();
+            if (nowPage - 1 < 0) {
+                return;
+            }
+            nowPage = nowPage - 1;
+            var lefts = titleLeft + page[nowPage] > 0 ? 0 : titleLeft + page[nowPage];
+            getOrSetPostion(".layui-tab-title", "left", lefts + "px");
+        });
+
+        //拦截记录与历史记录切换
+        $(".jose-layui-tab-title li").on("click", function () {
+            var id = $(this).attr("id");
+
+            var fn = {
+                "intercept": function () {
+                    $("#conHistory").removeClass("jose-layui-show");
+                    $("#boxCentent").addClass("jose-layui-show");
+                    $("#history").removeClass("jose-layui-this");
+                    $("#intercept").addClass("jose-layui-this");
+                    //$("#history").hide();
+                },
+                "history": function () {
+                    $("#boxCentent").removeClass("jose-layui-show");
+                    $("#conHistory").addClass("jose-layui-show");
+                    $("#history").addClass("jose-layui-this");
+                    $("#intercept").removeClass("jose-layui-this");
+                    //$("#intercept").hide();
+                },
+            }
+            fn[id]();
+        });
+
+    </script>
+
+</body>
+</html>

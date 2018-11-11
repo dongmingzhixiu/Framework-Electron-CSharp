@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/josekine.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layuis/css/layui.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="site-text site-block no-drop">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称文本：</label>
+                <div class="layui-input-block">
+                    <input type="text" isEmp="false" msg="名称输入有误" ctype="isText" id="title" placeholder="请输入应用名称,例如：酷狗" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称编码：</label>
+                <div class="layui-input-block">
+                    <input type="text" isEmp="false" msg="名称编码有误" ctype="isText" id="name" placeholder="请输入应用名称编码,例如：kugou" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">图标路径：</label>
+                <div class="layui-input-block">
+                    <input type="text" isEmp="false" msg="图片路径有误" ctype="isText" id="img_path" placeholder="请输入应用图片路径" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">运行路径：</label>
+                <div class="layui-input-block">
+                    <input type="text" isEmp="false" msg="运行路径有误" ctype="isText" id="path" placeholder="请输入应用运行路径" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="button" class="layui-btn" id="saveBtn" value="保存" />
+                    <input type="reset" class="layui-btn layui-btn-primary" value="重置" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../../jquery-2.2.0.min.js"></script>
+    <script src="../lib/layuis/layui.all.js"></script>
+    <script src="../lib/jquery.extends/jquery.bottomtip.js"></script>
+    <script src="../lib/jquery.extends/jquery.layer.load.js"></script>
+    <script src="../../function.js"></script>
+    <script src="../lib/jquery.extends/jquery.temp.js"></script>
+    <script src="../../socket-helper.js"></script>
+    <script src="../../hander.js"></script>
+    <script>
+        $("#saveBtn").on("click", function () {
+            title = $("#title").val(),img_path = $("#img_path").val(),
+                name = $("#name").val(),path = $("#path").val();
+            Hander("Programe!Add?title=" + this.title + "&img_path=" + img_path + "&name=" + name + "&path=" + path, function (result) {
+                debugger;
+                if (result.data == "1") {
+                    layer.msg("保存成功！", {time:2000});
+                }
+                for (var i = 0; i < top.reLoadFn.length; i++) {
+                    top.reLoadFn[i]();
+                    closeThis();
+                }
+            });
+        });
+        ///关闭当前弹出窗口
+        function closeThis() {
+            if (top.addControlIndex != null) {
+                layer.close(top.addControlIndex);
+            }
+            top.addControlIndex = null;
+        }
+
+    </script>
+</body>
+</html>
