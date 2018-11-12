@@ -69,18 +69,18 @@ function initSockets(sendMsg, callGetMsg, callOpen, cllClose) {
 function initSocketLong(sendMsg, callGetMsg, callOpen, cllClose) {
     var host = "ws://" + top.ip + ":" + top.port + "/"
     socket = new WebSocket(host);
-    socket.onmessage = socket.onmessage|| function (event) {
+    socket.onmessage = function (event) {
         if (typeof callGetMsg == "function")
             callGetMsg(event);
         if (typeof cllClose == "function") {
             cllClose(socket);
         }
     }
-    socket.onopen = socket.onopen || function (event) {
+    socket.onopen =  function (event) {
         if (typeof callOpen == "function")
             callOpen(event);
         sendMsg += (sendMsg.indexOf("?") > 0 ? "&" : "?") + "isLong=true";
-        top.socket.send(sendMsg);
+        socket.send(sendMsg);
     }
     return socket;
 }

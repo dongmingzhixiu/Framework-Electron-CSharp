@@ -194,8 +194,8 @@
         },
         getDay: function () {
             var d = new Date();
-            var day = [$.padLeft(d.getFullYear()), $.padLeft(d.getMonth() + 1), $.padLeft(d.getDate())];
-            return day.join(":");
+            var day = [d.getFullYear(), $.padLeft(d.getMonth() + 1), $.padLeft(d.getDate())];
+            return day.join("-");
         },
         getDayTime: function () {
             return $.getDay() + " " + $.getTime();

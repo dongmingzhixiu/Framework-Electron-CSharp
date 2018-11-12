@@ -46,7 +46,7 @@ namespace JpFramework
                 var mytypes = GetAllTypes();
                 foreach (var my in mytypes.Where(my => my.Name.ToLower().Equals(classInfo[0].ToLower() + "controller")))
                 {
-                    return ReflexTools.ExecuteMethod(my, classInfo[1], value, client).ToString();
+                    return ReflexTools.ExecuteMethod(my, classInfo[1], value, client);
                 }
                 throw new Exception("没有找到相关类或方法:" + classInfo[0]);
             }

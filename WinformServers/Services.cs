@@ -90,10 +90,7 @@ namespace JpFramework
         /// </summary>
         private void ClientCountChage(int count)
         {
-            Console.WriteLine("已连接数量"+count);
-            //if (count <= 0) {
-            //    System.Environment.Exit(0);
-            //}
+           Console.WriteLine("已连接数量"+count);
         }
 
         /// <summary>

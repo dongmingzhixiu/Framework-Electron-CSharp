@@ -110,6 +110,7 @@
                 ipc.send("goHome", { width: screen.width - 200, height: screen.height - 100 });
                 setTimeout(function () {
                     currwin.minimize();
+                    $.closeLoadForm();
                 }, 2000);
             });
         }

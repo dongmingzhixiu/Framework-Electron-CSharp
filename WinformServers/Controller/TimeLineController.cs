@@ -29,7 +29,7 @@ namespace JpFramework
         /// 查询所有
         /// </summary>
         /// <returns></returns>
-        public void GetWorkLine()
+        public string GetWorkLine()
         {
             var addr = IPAddress.Parse(Address);
             var client = new IPEndPoint(addr, Port);
@@ -42,18 +42,19 @@ namespace JpFramework
                 var msg = JsonTools.SerializeObject(obj);
                 Services.services.SendMsgToClient(msg, client);
             }
-
+            return null;
         }
 
         /// <summary>
         /// 添加
         /// </summary>
         /// <returns></returns>
-        public void AddWorkLine()
+        public string AddWorkLine()
         {
             if (!string.IsNullOrEmpty(title)) {
                 line.AddTimeLine(title, remake,times,"1");
             }
+            return null;
         }
 
     }

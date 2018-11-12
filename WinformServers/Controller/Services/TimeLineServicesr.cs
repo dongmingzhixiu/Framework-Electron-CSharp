@@ -20,7 +20,7 @@ namespace JpFramework
         /// <returns></returns>
         public DataTable GetTimeLine(int type)
         {
-            var sql =string.Format( "select id,title,remake,times from s_timeline where type='{0}' order by times desc",type);
+            var sql =string.Format("select id,title,remake,CONVERT(varchar(100), times, 102) from s_timeline where type='{0}' order by times asc", type);
             return DBHelper.GetTable(sql);
         }
 
