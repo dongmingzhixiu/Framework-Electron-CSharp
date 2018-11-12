@@ -74,23 +74,30 @@
                     }
                 },
                 cancel: function (index, layero) {
-                    var conIndex = layer.confirm('确定关闭吗？', {
-                        btn: ['确定', '取消'] //按钮
-                    },
-                        function (_index, lary) {
-                            if (typeof closeBack == "function") {
-                                closeBack(_index, lary);
-                            } else {
-                                layer.close(index);
-                                layer.close(_index);
-                            }
+                    if (option["cancelMsg"]) {
+                        var conIndex = layer.confirm('确定关闭吗？', {
+                            btn: ['确定', '取消'] //按钮
                         },
-                        function (_index, lary) {
-                            layer.close(_index);
-                            return false;
+                            function (_index, lary) {
+                                if (typeof closeBack == "function") {
+                                    closeBack(_index, lary);
+                                } else {
+                                    layer.close(index);
+                                    layer.close(_index);
+                                }
+                            },
+                            function (_index, lary) {
+                                layer.close(_index);
+                                return false;
 
-                        });
-                    return false;
+                            });
+                        return false;
+                    } else {
+                        layer.close(index);
+                        if (typeof closeBack == "function") {
+                            closeBack(null,null);
+                        } 
+                    }
                 }
             });
 
@@ -195,6 +202,21 @@
         },
         getNow: function () {
 
+        },
+        /**
+         * 获取当前url参数
+         */
+        getRequestValue: function (key, url) {
+            if (!url) {
+                url = location.href;
+            }
+            var href = "{'" + url.replace(/.*[?]/g, "").replace(/&/g, "','").replace(/=/g, "':'") + "'}";
+            var request = eval("(" + href + ")");
+            try {
+                return key == undefined ? request : request[key];
+            } catch (e) {
+                return null;
+            }
         }
         
     });
@@ -204,7 +226,8 @@
         area: [(window.screen.width - 200) + 'px', (window.screen.height - 120) + 'px'],
         fixed: false, //不固定
         maxmin: true,
-        content: ""
+        content: "",
+        cancelMsg: true
     }
 
 })(window.jQuery);

@@ -83,7 +83,7 @@ ipcMain.on("goHome", (event, size) => {
 
     myHome.loadURL(__dirname + "/app/index.html");
     myHome.show();
-    //myHome.openDevTools();
+    myHome.openDevTools();
 });
 
 //监听退出事件

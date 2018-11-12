@@ -13,7 +13,7 @@
 
         .box-text {
             display: block;
-            user-select:none;
+            user-select: none;
         }
 
         .menu {
@@ -34,9 +34,11 @@
                 text-shadow: 1px 1px #e2e2e2;
                 cursor: pointer;
             }
+
         box-editor i:hover {
-            font-size:24px;
+            font-size: 24px;
         }
+
         .layui-icon {
             font-family: layui-icon !important;
             font-size: 24px;
@@ -44,13 +46,14 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .layui-icon:hover {
-            font-family: layui-icon !important;
-            font-size: 25px;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+
+            .layui-icon:hover {
+                font-family: layui-icon !important;
+                font-size: 25px;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
     </style>
 </head>
 
@@ -62,17 +65,22 @@
     </div>
     <div id="programeList">
         <div onclick="top.openHTML('{path}','{title}');closeThis()" class="programe float-l rotate josekine-2em div-frame-4em box-text" name="{name}" title="{title}" style="overflow: hidden;background: no-repeat url({img_path}) left top;-webkit-background-size: 100%;border: 1px solid #ccc">
-            <div style="background: #00000082;margin-bottom: 0px;color: white;width: 100%;text-align: center;padding: 5px 0px;margin-top: 60px;">{title}</div>
+            <div style="background: #00000082;margin-bottom: 0px;color: white;width: 100%;text-align: center;padding: 5px 0px;margin-top: 45px; word-wrap: break-word;">{title}</div>
         </div>
-        <div class="programe float-l josekine-2em div-frame-4em box-editor" name="{name}" title="{title}" style="overflow: hidden; border-radius: 50%; background: url(&quot;{img_path}&quot;) left top / 100% 100% no-repeat; border: 1px solid rgb(204, 204, 204); display: block;">
-            <div class="box-editor" style="background: rgba(226, 226, 226, 0.53);padding-top: 20px;text-align: center;height: 20px;display: block;" title="编辑"><i class="layui-icon  layui-icon-edit"></i></div>
-            <div class="box-editor" style="background: rgba(226, 226, 226, 0.53);height: 45px;padding-top: 16px;text-align: center;display: block;" title="移除"><i class="layui-icon  layui-icon-delete"></i></div>
+        <div class="programe float-l josekine-2em div-frame-4em box-editor" name="{name}" title="{title}" style="overflow: hidden; border-radius: 50%; background: url({img_path}) left top / 100% 100% no-repeat; border: 1px solid rgb(204, 204, 204); display: block;">
+            <div class="editorCon">
+                <div class="box-editor" style="background: rgba(226, 226, 226, 0.53);padding-top: 20px;text-align: center;height: 20px;display: block;">
+                    <i onclick="editorPro('{id}')" class="layui-icon  layui-icon-edit" style=" color: white;"  title="编辑"></i>
+                    <i onclick="deletePro('{id}')" class="layui-icon  layui-icon-delete" style=" color: white;"  title="移除"></i>
+                </div>
+                <div class="box-editor" style="background: rgba(226, 226, 226, 0.53);height: 45px;padding-top: 16px;text-align: center;display: block;">
+                    <div style="margin-bottom: 0px;color: black;width: 100%;text-align: center;padding: 5px 0px;overflow-wrap: break-word;background: white;">{title}</div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- <webview  class="frame"  style="width:100vw"  id="frame" src="../../extends/suop/index.html" plugins> </webview > -->
 
     <script src="../../jquery-2.2.0.min.js"></script>
-    <!--<script>if (typeof module === 'object') { top.$ = window.jQuery = window.$ = module.exports; };</script>-->
     <script src="../lib/layuis/layui.all.js"></script>
     <script src="../lib/jquery.extends/jquery.bottomtip.js"></script>
     <script src="../lib/jquery.extends/jquery.layer.load.js"></script>
@@ -80,7 +88,6 @@
     <script src="../lib/jquery.extends/jquery.temp.js"></script>
     <script src="../../socket-helper.js"></script>
     <script src="../../hander.js"></script>
-    <!--<script src="../../electron-tools.js"></script>-->
     <script>
         reaLoadControl = function () {
             location.reload();
@@ -91,13 +98,11 @@
         initControl = function () {
             Hander("Programe!GetList", function (result) {
                 res = JSON.parse(result.data).ds;
-                $.bandTempJson(res, "#programeList");
+                $.bandTempJson(res, "#programeList", decodeURI);
                 var addDiv = '<div onclick="addPrograme()" class="float-l rotate josekine-2em div-frame-4em" style="overflow: hidden;background: no-repeat url(../lib/images/add.png) left top;-webkit-background-size: 100%;"></div>';
                 document.getElementById("programeList").innerHTML += addDiv;
-                //$.setRandColorByClass("box-text div", "background-color", [[0, 50], [0, 255], [50, 255]]);
-                //$.setRandColorByClass("box-editor div", "background-color", [[0, 50], [0, 255], [50, 255]]);
                 $.setRandColorByClass("box-text div", "background-color", [[0, 255], [0, 150], [50, 150]]);
-                $.setRandColorByClass("box-editor i", "color", [[0, 255], [0, 150], [50, 150]]);
+                $.setRandColorByClass("editorCon", "background-color", [[0, 255], [0, 150], [50, 150]]);
             });
         }
         $(function () {
@@ -113,7 +118,20 @@
         }
         //添加程序
         function addPrograme() {
-            top.addControlIndex = $.openForm({ area: ["510px", "330px"], title: "添加程式", content: 'control-add.html' });
+            top.addControlIndex = $.openForm({ area: ["510px", "330px"], title: "添加程式", content: 'control-add.html', cancelMsg: false }, function (index) { }, function (_index, lary) {
+                location.reload();
+            });
+        }
+
+        function editorPro(id) {
+            top.addControlIndex = $.openForm({ area: ["510px", "330px"], title: "编辑程式", content: 'control-add.html?id=' + id, cancelMsg: false }, function (index) { }, function (index, lay) {
+                location.reload();
+            });
+        }
+
+        function deletePro(id) {
+            debugger;
+            Hander("Programe!Delete?id=" + id, function (res) { });
         }
 
         //打开关闭编辑
@@ -126,9 +144,6 @@
                     $(".box-editor").hide();
                     $(".box-text").slideDown();
                 }
-                //$(".box-editor").slideToggle();
-                //$(".box-text").slideToggle();
-                //$("#programeList").slideToggle();
             }
         });
         $("#editorPro").click();

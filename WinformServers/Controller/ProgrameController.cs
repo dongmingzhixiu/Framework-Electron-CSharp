@@ -25,6 +25,8 @@ namespace  JpFramework
         public string img_path { get; set; }
         public string name { get; set; }
         public string path { get; set; }
+        public string id { get; set; }
+
 
         public string nameOrTitle { get; set; }
 
@@ -49,6 +51,24 @@ namespace  JpFramework
         public string Add()
         {
             var result = programeServices.Add( title, img_path, name, path); 
+            return result;
+        }
+        /// <summary>
+        /// 删除程式
+        /// </summary>
+        /// <returns></returns>
+        public string Delete()
+        {
+            var result = programeServices.Delete(id);
+            return result;
+        }
+        /// <summary>
+        /// 得到程式
+        /// </summary>
+        /// <returns></returns>
+        public string GetPro()
+        {
+            var result = programeServices.GetPro(id);
             return result;
         }
     }

@@ -52,11 +52,23 @@
     <script src="../../socket-helper.js"></script>
     <script src="../../hander.js"></script>
     <script>
+        load();
+        function load() {
+            var id = $.getRequestValue("id");
+            Hander("Programe!GetPro?id=" + id, function (res) {
+                var data = JSON.parse(res.data).ds;
+                if (data && data.length > 0) {
+                    $("#title").val(decodeURI(data[0].title));
+                    $("#img_path").val(data[0].img_path);
+                    $("#name").val(data[0].name);
+                    $("#path").val(data[0].path);
+                }
+            });
+        }
+
         $("#saveBtn").on("click", function () {
-            title = $("#title").val(),img_path = $("#img_path").val(),
-                name = $("#name").val(),path = $("#path").val();
-            Hander("Programe!Add?title=" + this.title + "&img_path=" + img_path + "&name=" + name + "&path=" + path, function (result) {
-                debugger;
+            title = $("#title").val(),img_path = $("#img_path").val(),name = $("#name").val(), path = $("#path").val();
+            Hander("Programe!Add?title=" + encodeURI(title) + "&img_path=" + img_path + "&name=" + encodeURI(name) + "&path=" + path, function (result) {
                 if (result.data == "1") {
                     layer.msg("保存成功！", {time:2000});
                 }

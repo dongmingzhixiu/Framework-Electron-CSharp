@@ -51,7 +51,7 @@ namespace JpFramework.Tools
         {
             //实例化对象  实例参数
             var objName = Activator.CreateInstance(my);
-            value += client != null ? (!string.IsNullOrEmpty(value) ? "&" : "") + "Address=" + client.Address + "&Port=" + client.Port : value;
+            value +=  client != null ?  (!string.IsNullOrEmpty(value) ? "&" : "") + "Address=" + client.Address + "&Port=" + client.Port : "";
             //为对象属性赋值
             SetProperty(my, objName, value);
             //执行方法

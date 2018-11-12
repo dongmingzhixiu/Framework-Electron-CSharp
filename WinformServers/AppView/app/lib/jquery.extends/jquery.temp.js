@@ -29,12 +29,13 @@
          * 绑定数据到 块
          * @param {} json  后台json数据
          * @param {} selector jquery选择器
+         * @param {} decode 使用解码的方法
          * @param {} isRplace 是否处理特殊字符 
          * @param {} replaceVale 要替换的值对象
          * @returns {} object
          */
-        bandTempJson:function(json, selector, isRplace, replaceVale){
-            return bandTempJson(json, selector, isRplace, replaceVale);
+        bandTempJson:function(json, selector,decode, isRplace, replaceVale){
+            return bandTempJson(json, selector,decode, isRplace, replaceVale);
         },
         /**
         * 使用第一次的模板，进行数据追加
@@ -51,12 +52,13 @@
         * 使用第一次的模板，进行数据追加
         * @param {} json  后台json数据
         * @param {} selector jquery选择器
+        * @param {} decode 使用解码的方法
         * @param {} isRplace 是否处理特殊字符 
         * @param {} replaceVale 要替换的值对象
         * @returns {} object
         */
-        bandTempJsonAppendBefore: function (json, selector, isRplace, replaceVale) {
-            return bandTempJsonAppendBefore(json, selector, isRplace, replaceVale);
+        bandTempJsonAppendBefore: function (json, selector,decode, isRplace, replaceVale) {
+            return bandTempJsonAppendBefore(json, selector, decode, isRplace, replaceVale);
         },
         
          /**
@@ -92,7 +94,7 @@
      * @param {} replaceVale 要替换的值对象
      * @returns {} object
      */
-    function bandTempJson(json, selector, isRplace, replaceVale) {
+    function bandTempJson(json, selector,decode, isRplace, replaceVale) {
         isRplace = isRplace == undefined||isRplace ==true ? true : false;
 
         var data = $(selector);
@@ -106,6 +108,9 @@
                 //value = value || '未知';
                 (replaceVale != undefined) && (v = replaceVale[_json], value = v == undefined ? value : v[value]);
                 var regex = new RegExp("[{]" + _json + "[}]", "g");
+                if (typeof decode == "function") {
+                    value = decode(value);
+                }
                 innerHtmls = innerHtmls.replace(regex, value);
             }
             tbodyHtml += innerHtmls;

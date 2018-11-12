@@ -39,7 +39,7 @@
         }
 
         .flush {
-            right: 5px;
+            right: 25px;
             top: 210px;
             position: fixed;
             padding: 15px;
@@ -223,7 +223,7 @@
     <script>
         $(function () {
             //默认初始化加载控制台
-            top.controlIndex = $.openForm({ content: "htmls/control.html", area: [(window.screen.width - 300) + 'px', (window.screen.height - 300) + 'px'] },
+            top.controlIndex = $.openForm({ content: "htmls/control.html", area: [(window.screen.width - 300) + 'px', (window.screen.height - 300) + 'px'], "cancelMsg": false},
             );
         });
         addHistory("","");

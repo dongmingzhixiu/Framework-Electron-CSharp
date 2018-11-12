@@ -27,10 +27,23 @@ namespace JpFramework
         /// <returns></returns>
         public string GetList(string nameOrTitle)
         {
-            var sql = "select * from s_programe where name like '%" + nameOrTitle + "%' or title like '%" + nameOrTitle + "%'";
+            var sql = "select [id],[name],[img_path],[title],[path] from s_programe where name like '%" + nameOrTitle + "%' or title like '%" + nameOrTitle + "%'";
             var table = DBHelper.Query(sql);
             return JsonTools.SerializeObject(table);
         }
+
+        /// <summary>
+        /// 获取程序
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public string GetPro(string id)
+        {
+            var sql = string.Format("select [id],[name],[img_path],[title],[path] from s_programe where id='{0}'",id);
+            var table = DBHelper.Query(sql);
+            return JsonTools.SerializeObject(table);
+        }
+        
         /// <summary>
         /// 保存数据
         /// </summary>
@@ -38,8 +51,20 @@ namespace JpFramework
         public string Add(string title, string img_path, string name, string path)
         {
             var sql = "INSERT INTO [dbo].[s_programe] ([name], [img_path], [title], [path]) VALUES ('{0}','{1}','{2}','{3}')";
-            sql = string.Format(sql, title, img_path, name, path);
+            sql = string.Format(sql, name,  img_path, title, path);
             return DBHelper.ExecuteSql(sql).ToString();
         }
-     }
+        /// <summary>
+        /// 保存数据
+        /// </summary>
+        /// <returns></returns>
+        public string Delete(string id)
+        {
+            var sql = "delete from [s_programe] where id='{0}'";
+            sql = string.Format(sql, id);
+            return DBHelper.ExecuteSql(sql).ToString();
+        }
+
+        
+    }
 }

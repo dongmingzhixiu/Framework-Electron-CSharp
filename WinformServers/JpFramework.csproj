@@ -106,10 +106,11 @@
     <Compile Include="Controller\Entity\IEntity.cs" />
     <Compile Include="Controller\Entity\TypesEntity.cs" />
     <Compile Include="Controller\Entity\UserEntity.cs" />
+    <Compile Include="Controller\Services\TimeLineServicesr.cs" />
+    <Compile Include="Controller\TimeLineController.cs" />
     <Compile Include="Controller\HistoryController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ProgrameController.cs" />
-    <Compile Include="Controller\Services\ChartsServices.cs" />
     <Compile Include="Controller\Services\HistoryServices.cs" />
     <Compile Include="Controller\Services\LoginServices.cs" />
     <Compile Include="Controller\Services\ProgrameServices.cs" />
@@ -1370,6 +1371,9 @@
     <Content Include="AppView\extends\suop\js\index.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="AppView\extends\time-line\work-line.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="AppView\function-main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1989,9 +1993,9 @@
     <TypeScriptCompile Include="AppView\node_modules\performance-now\src\index.d.ts" />
     <TypeScriptCompile Include="AppView\node_modules\safe-buffer\index.d.ts" />
     <TypeScriptCompile Include="AppView\node_modules\tweetnacl\nacl.d.ts" />
-    <TypeScriptCompile Include="AppView\server.ts">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppView\extends\time-line\js\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
