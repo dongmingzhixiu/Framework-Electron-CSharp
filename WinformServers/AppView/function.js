@@ -210,6 +210,9 @@
             if (!url) {
                 url = location.href;
             }
+            if(url.indexOf("?")<0){
+                return null;
+            }
             var href = "{'" + url.replace(/.*[?]/g, "").replace(/&/g, "','").replace(/=/g, "':'") + "'}";
             var request = eval("(" + href + ")");
             try {
