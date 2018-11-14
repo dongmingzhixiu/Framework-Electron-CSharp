@@ -70,8 +70,8 @@
         <div class="programe float-l josekine-2em div-frame-4em box-editor" name="{name}" title="{title}" style="overflow: hidden; border-radius: 50%; background: url({img_path}) left top / 100% 100% no-repeat; border: 1px solid rgb(204, 204, 204); display: block;">
             <div class="editorCon">
                 <div class="box-editor" style="background: rgba(226, 226, 226, 0.53);padding-top: 20px;text-align: center;height: 20px;display: block;">
-                    <i onclick="editorPro('{id}')" class="layui-icon  layui-icon-edit" style=" color: white;"  title="编辑"></i>
-                    <i onclick="deletePro('{id}')" class="layui-icon  layui-icon-delete" style=" color: white;"  title="移除"></i>
+                    <i onclick="editorPro('{id}')" class="layui-icon  layui-icon-edit" style=" color: white;" title="编辑"></i>
+                    <i onclick="deletePro('{id}')" class="layui-icon  layui-icon-delete" style=" color: white;" title="移除"></i>
                 </div>
                 <div class="box-editor" style="background: rgba(226, 226, 226, 0.53);height: 45px;padding-top: 16px;text-align: center;display: block;">
                     <div style="margin-bottom: 0px;color: black;width: 100%;text-align: center;padding: 5px 0px;overflow-wrap: break-word;background: white;">{title}</div>
@@ -88,6 +88,7 @@
     <script src="../lib/jquery.extends/jquery.temp.js"></script>
     <script src="../../socket-helper.js"></script>
     <script src="../../hander.js"></script>
+    <script src="../../ajax-hander.js"></script>
     <script>
         reaLoadControl = function () {
             location.reload();
@@ -96,14 +97,13 @@
         top.reLoadFn[top.reLoadFn.length] = reaLoadControl;
         //初始化控制程序
         initControl = function () {
-            Hander("Programe!GetList", function (result) {
-                res = JSON.parse(result.data).ds;
+            HttpHander("Programe!GetListHttp", function (res) {
                 $.bandTempJson(res, "#programeList", decodeURI);
                 var addDiv = '<div onclick="addPrograme()" class="float-l rotate josekine-2em div-frame-4em" style="overflow: hidden;background: no-repeat url(../lib/images/add.png) left top;-webkit-background-size: 100%;"></div>';
                 document.getElementById("programeList").innerHTML += addDiv;
                 $.setRandColorByClass("box-text div", "background-color", [[0, 255], [0, 150], [50, 150]]);
                 $.setRandColorByClass("editorCon", "background-color", [[0, 255], [0, 150], [50, 150]]);
-            });
+            },true);
         }
         $(function () {
             initControl();

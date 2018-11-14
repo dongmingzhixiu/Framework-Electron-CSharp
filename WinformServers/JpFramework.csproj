@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpServices.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Controller\Entity\AccountEntity.cs" />
     <Compile Include="Controller\Entity\IEntity.cs" />
@@ -996,6 +997,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppView\ajax-hander.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="AppView\app\css\admin.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

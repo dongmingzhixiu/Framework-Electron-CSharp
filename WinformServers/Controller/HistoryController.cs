@@ -47,6 +47,18 @@ namespace JpFramework
 
         }
 
+
+        /// <summary>
+        /// 查询所有
+        /// </summary>
+        /// <returns></returns>
+        public string GetHistoryHttp()
+        {
+            var table = his.GetHistory();
+            //由于使用的socket框架原因，防止数据过多，需要数据一条一条发送
+            return JsonTools.SerializeObject(table);
+        }
+
         /// <summary>
         /// 添加
         /// </summary>
@@ -56,7 +68,6 @@ namespace JpFramework
             if (!string.IsNullOrEmpty(title)&&!string.IsNullOrEmpty(url)) {
                 his.AddHistory(title, url).ToString();
             }
-            GetHistory();
         }
 
 

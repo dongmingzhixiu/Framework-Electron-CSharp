@@ -25,11 +25,11 @@ namespace JpFramework
         /// </summary>
         /// <param name="nameOrTitle"></param>
         /// <returns></returns>
-        public string GetList(string nameOrTitle)
+        public DataTable GetList(string nameOrTitle)
         {
             var sql = "select [id],[name],[img_path],[title],[path] from s_programe where name like '%" + nameOrTitle + "%' or title like '%" + nameOrTitle + "%'";
-            var table = DBHelper.Query(sql);
-            return JsonTools.SerializeObject(table);
+            var table = DBHelper.GetTable(sql);
+            return table;
         }
 
         /// <summary>

@@ -26,7 +26,7 @@ namespace JpFramework
         TimeLineServicesr line = new TimeLineServicesr();
        
         /// <summary>
-        /// 查询所有
+        /// 查询所有 通过 socket 调用 
         /// </summary>
         /// <returns></returns>
         public string GetWorkLine()
@@ -44,6 +44,19 @@ namespace JpFramework
             }
             return null;
         }
+
+        /// <summary>
+        /// 查询所有 通过 ajax http调用
+        /// </summary>
+        /// <returns></returns>
+        public string GetWorkLineHttp()
+        {
+            var addr = IPAddress.Parse(Address);
+            var client = new IPEndPoint(addr, Port);
+            var table = line.GetTimeLine(1);
+            return JsonTools.SerializeObject(table);
+        }
+
 
         /// <summary>
         /// 添加

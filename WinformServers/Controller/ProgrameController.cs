@@ -14,6 +14,7 @@
 
 using JpFramework.MVC.Entity;
 using JpFramework.Tools;
+using System.Net;
 
 namespace  JpFramework
 {
@@ -36,13 +37,31 @@ namespace  JpFramework
 
         public ProgrameServices programeServices = new ProgrameServices();
         /// <summary>
-        /// 得到程式集合
+        /// 得到程式集合 通过 socket
         /// </summary>
         /// <returns></returns>
         public string GetList()
         {
+            var addr = IPAddress.Parse(Address);
+            var client = new IPEndPoint(addr, Port);
+
             var result= programeServices.GetList(nameOrTitle);
-            return result;
+            for (var i = 0; i < result.Rows.Count; i++) {
+                var json = JsonTools.SerializeObject(result.Rows[i]);
+                Services.services.SendMsgToClient(json, client);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 得到程式集合 通过ajax http调用
+        /// </summary>
+        /// <returns></returns>
+        public string GetListHttp()
+        {
+            var result = programeServices.GetList(nameOrTitle);
+            var json = JsonTools.SerializeObject(result);
+            return json;
         }
         /// <summary>
         /// 添加程式

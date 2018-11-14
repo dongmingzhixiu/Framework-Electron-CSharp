@@ -13,6 +13,7 @@
     <script src="../../hander.js"></script>
     <script src="../../app/lib/layuis/layui.js" charset="utf-8"></script>
     <script src="../../function.js" charset="utf-8"></script>
+    <script src="../../ajax-hander.js" charset="utf-8"></script>
 
 </head>
 <body>
@@ -65,12 +66,11 @@
     </div>
     <script>
         window.onload = function () {
-            HanderLong("TimeLine!GetWorkLine", function (result) {
-                var json = JSON.parse(result.data);
-                $.bandTempJsonAppendBefore([json], "#lineList", decodeURI);
+            HttpHander("TimeLine!GetWorkLineHttp", function (json) {
+                $.bandTempJsonAppendBefore(json, "#lineList", decodeURI);
                 $("#lineList li>div:not(:last)").show()
                 $("#lineList li>div:last").hide();
-            });
+            },true);
         }
 
         $(function () {

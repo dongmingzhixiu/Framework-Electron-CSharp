@@ -220,26 +220,32 @@
     <script src="../function.js"></script>
     <script src="../socket-helper.js"></script>
     <script src="../hander.js"></script>
+    <script src="../ajax-hander.js"></script>
     <script>
         $(function () {
             //默认初始化加载控制台
-            top.controlIndex = $.openForm({ content: "htmls/control.html", area: [(window.screen.width - 300) + 'px', (window.screen.height - 300) + 'px'], "cancelMsg": false},
+            top.controlIndex = $.openForm({ content: "htmls/control.html", area: [(window.screen.width - 300) + 'px', (window.screen.height - 300) + 'px'], "cancelMsg": false },
             );
         });
-        addHistory("","");
+        initHistory();
         //添加历史记录到本地数据文件
         function addHistory(title, url) {
-            HanderLong("History!AddHistory?title=" + encodeURI(title) + "&url=" + url + "", function (result) {
-                res = JSON.parse(result.data);
-                $.bandTempJsonAppendBefore([res], "#boxHisCentent", decodeURI);
+            HanderHttp("History!AddHistory?title=" + encodeURI(title) + "&url=" + url + "", function (result) {
+                initHistory();
+            });
+        }
+        function initHistory() {
+            HanderHttp("History!GetHistoryHttp", function (res) {
+                $.bandTempJsonAppendBefore(res, "#boxHisCentent", decodeURI);
                 $(".box-his-content").show();
                 $("#boxHisCentent>div:last").hide();
-            });
+            }, true)
         }
         //删除记录
         function deleteHistory(id) {
             $(".box-his-content:not(:eq(0))").remove();
-            HanderLong("History!DeleteHistory?id=" + id, function (result) {
+            HanderHttp("History!DeleteHistory?id=" + id, function (result) {
+                initHistory();
             });
         }
 

@@ -35,6 +35,21 @@ namespace JpFramework
             return result;
         }
 
+        /// <summary>
+        ///    反射调用方法入口处理函数
+        ///    action!method.do?a=1&b=2
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public object EventHander(string str)
+        {
+            var Info = str.Split('?');
+            var classInfo = Info[0].Split('!');
+            var value = Info.Length > 1 && Info[1] != "undefined" && !string.IsNullOrEmpty(Info[1]) ? Info[1] : null;
+            var result = ExeMethod(classInfo, value,null);
+            return result;
+        }
+
 
         /// <summary>
         ///     执行方法 并返回数据
