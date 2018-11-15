@@ -1,7 +1,7 @@
 # Framework-Electron-CSharp
 使用Electron、C# 开发小型的应用框架，只适合于window
 
-```使用Electron 开发应用程序界面，使用C# .NetFramework来做数据处理，利用websocket来实现两者之间的通信,未解决websocket数据传递长度问题，引入winfomr http服务，实现长数据处理```
+```使用Electron 开发应用程序界面，使用C# .NetFramework来做数据处理，利用websocket来实现两者之间的通信,未解决websocket数据传递长度问题，引入winform http服务，实现长数据处理```
 
 
 ## 登录界面 用户名：```admin``` 密码 ：```123456```
