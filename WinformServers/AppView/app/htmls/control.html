@@ -131,7 +131,9 @@
 
         function deletePro(id) {
             debugger;
-            Hander("Programe!Delete?id=" + id, function (res) { });
+            Hander("Programe!Delete?id=" + id, function (res) {
+                initControl();
+            });
         }
 
         //打开关闭编辑

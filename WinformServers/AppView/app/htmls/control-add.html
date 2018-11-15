@@ -11,6 +11,7 @@
 <body>
     <div class="site-text site-block no-drop">
         <form class="layui-form" action="">
+            <input type="hidden" id="id" value="" />
             <div class="layui-form-item">
                 <label class="layui-form-label">名称文本：</label>
                 <div class="layui-input-block">
@@ -58,6 +59,7 @@
             Hander("Programe!GetPro?id=" + id, function (res) {
                 var data = JSON.parse(res.data).ds;
                 if (data && data.length > 0) {
+                    $("#id").val(id);
                     $("#title").val(decodeURI(data[0].title));
                     $("#img_path").val(data[0].img_path);
                     $("#name").val(data[0].name);
@@ -68,7 +70,7 @@
 
         $("#saveBtn").on("click", function () {
             title = $("#title").val(),img_path = $("#img_path").val(),name = $("#name").val(), path = $("#path").val();
-            Hander("Programe!Add?title=" + encodeURI(title) + "&img_path=" + img_path + "&name=" + encodeURI(name) + "&path=" + path, function (result) {
+            Hander("Programe!Add?id=" + $("#id").val()+"&title=" + encodeURI(title) + "&img_path=" + img_path + "&name=" + encodeURI(name) + "&path=" + path, function (result) {
                 if (result.data == "1") {
                     layer.msg("保存成功！", {time:2000});
                 }
