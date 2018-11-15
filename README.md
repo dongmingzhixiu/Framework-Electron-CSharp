@@ -1,10 +1,10 @@
 # Framework-Electron-CSharp
 使用Electron、C# 开发小型的应用框架，只适合于window
 
-```使用Electron 开发应用程序界面，使用C# .NetFramework来做数据处理，利用websocket来实现两者之间的通信```
+```使用Electron 开发应用程序界面，使用C# .NetFramework来做数据处理，利用websocket来实现两者之间的通信,未解决websocket数据传递长度问题，引入winfomr http服务，实现长数据处理```
 
 
-## 登录界面
+## 登录界面 用户名：```admin``` 密码 ：```123456```
 ![简单的登录界面](https://github.com/dongmingzhixiu/Framework-Electron-CSharp/blob/master/EffectImg/QQ%E6%88%AA%E5%9B%BE20181112015202.png)
 
 ## 主界面的控制台
